@@ -1,0 +1,149 @@
+/* ── VL Subpage Shared Styles ── */
+:root{
+  --ink:#0a0a0a;
+  --paper:#ffffff;
+  --line:#e6e6e6;
+  --mute:#7a7a7a;
+  --primary:#402759;
+  --point:#c4a462;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);
+  font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+.ico{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.ico svg{display:block;width:100%;height:100%}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:90;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 40px;gap:16px 32px;flex-wrap:wrap;
+  transition:padding .35s ease;
+}
+.nav.scrolled{padding:12px 40px}
+.nav-logo{flex:0 0 auto;display:inline-flex;align-items:center}
+.nav-logo img{height:46px;width:auto;display:block;transition:height .35s ease}
+.nav.scrolled .nav-logo img{height:38px}
+.nav-menu{display:flex;gap:30px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav-menu a{font-size:11.5px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:var(--ink);transition:opacity .3s;position:relative;white-space:nowrap}
+.nav-menu a:hover{opacity:.55}
+.nav-menu a.current::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:1.5px;background:var(--ink)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:0;cursor:pointer;padding:8px;z-index:101}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--ink);transition:transform .35s,opacity .25s}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.42);opacity:0;visibility:hidden;transition:opacity .4s,visibility .4s;z-index:99}
+
+/* PAGE HERO */
+.page-hero{
+  position:relative;height:54vh;min-height:380px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  background:#0a0a0a;color:#fff;
+}
+.page-hero .ph-bg{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center;opacity:.6;animation:phZoom 12s ease-out forwards}
+@keyframes phZoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+.page-hero::after{content:'';position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.45),rgba(0,0,0,.65))}
+.page-hero .ph-inner{position:relative;z-index:5;max-width:1080px;padding:0 24px}
+.page-hero .ph-eyebrow{
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.82);font-weight:500;margin-bottom:24px;display:block;
+}
+.page-hero h1{font-size:90px;font-weight:800;letter-spacing:8px;line-height:1;text-transform:uppercase}
+@media (max-width:900px){.page-hero h1{font-size:48px;letter-spacing:4px} .page-hero .ph-eyebrow{font-size:10.5px;letter-spacing:2px;margin-bottom:16px}}
+@media (max-width:480px){.page-hero h1{font-size:34px;letter-spacing:3px} .page-hero .ph-eyebrow{font-size:9.5px;letter-spacing:1.5px;margin-bottom:12px}}
+
+/* BREADCRUMB */
+.bread{padding:18px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);font-weight:600;border-bottom:1px solid var(--line)}
+.bread a{color:var(--mute);transition:color .3s}
+.bread a:hover{color:var(--ink)}
+.bread span+span::before{content:'/';margin:0 12px;color:var(--mute)}
+.bread .current{color:var(--ink)}
+
+/* SECTION COMMONS */
+.section{padding:100px 32px}
+.section-head{text-align:center;max-width:880px;margin:0 auto 64px}
+.section-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;font-weight:700;color:var(--ink);position:relative;padding-bottom:0;display:inline-block;margin-bottom:18px}
+.section-eyebrow::after{display:none}
+.section-head h2{font-size:48px;font-weight:800;letter-spacing:-1px;line-height:1.2;color:var(--ink)}
+.section-head p.sub{margin-top:18px;font-size:15px;color:var(--mute);line-height:1.85;letter-spacing:.3px}
+.wrap{max-width:1280px;margin:0 auto}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.5,0,.2,1),transform 1s cubic-bezier(.5,0,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* BUTTONS */
+.btn-solid{display:inline-flex;align-items:center;gap:14px;background:#000;color:#fff;padding:18px 44px;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;transition:background .35s,color .35s,letter-spacing .35s}
+.btn-solid:hover{background:#fff;color:#000;outline:1px solid #000;letter-spacing:5px}
+.btn-line{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--ink);transition:letter-spacing .35s,gap .35s}
+.btn-line:hover{letter-spacing:5px;gap:18px}
+.btn-solid .ico,.btn-line .ico{width:14px;height:14px}
+
+/* FOOTER */
+footer{background:#000;color:rgba(255,255,255,.65);padding:72px 32px 32px;font-size:13px;margin-top:80px}
+footer .f-wrap{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:48px}
+footer h5{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:20px;font-weight:700}
+footer ul{list-style:none;display:grid;gap:10px}
+footer ul a{color:rgba(255,255,255,.65);transition:color .3s}
+footer ul a:hover{color:#fff}
+footer .f-brand strong{display:block;color:#fff;font-size:13px;font-weight:700;margin-bottom:14px}
+footer .f-brand{line-height:1.85}
+footer .copy{margin-top:56px;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:11px;color:rgba(255,255,255,.45);max-width:1320px;margin-left:auto;margin-right:auto}
+
+/* RESPONSIVE */
+/* Tablet landscape */
+@media (max-width:1024px){
+  .nav{padding:14px 24px}
+  .nav-menu{gap:20px}
+  .nav-logo img{height:42px}
+  .nav.scrolled .nav-logo img{height:36px}
+}
+/* Tablet portrait / large phone — menu wraps below logo */
+@media (max-width:768px){
+  .nav{padding:12px 18px;flex-wrap:nowrap;backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
+  .nav-logo img,.nav.scrolled .nav-logo img{height:38px}
+  .nav-toggle{display:flex}
+  .nav-backdrop{display:block}
+  .nav.open .nav-backdrop{opacity:1;visibility:visible}
+  .nav-menu{
+    position:fixed;top:0;right:0;bottom:0;width:78%;max-width:340px;
+    background:#fff;flex-direction:column;flex-wrap:nowrap;align-items:flex-start;
+    justify-content:flex-start;gap:0;padding:96px 36px 48px;margin:0;border:0;
+    transform:translateX(105%);transition:transform .42s cubic-bezier(.5,0,.2,1);
+    box-shadow:-12px 0 50px rgba(0,0,0,.14);z-index:100;overflow-y:auto;
+  }
+  .nav.open .nav-menu{transform:translateX(0)}
+  .nav-menu a{font-size:15px;letter-spacing:1.5px;width:100%;padding:20px 0;border-bottom:1px solid var(--line)}
+  .nav-menu a.current::after{display:none}
+  .nav-menu a.current{color:var(--mute)}
+  .page-hero{height:42vh;min-height:260px}
+  .section{padding:60px 16px}
+  .section-head{margin-bottom:44px}
+  .section-head h2{font-size:28px}
+  footer{padding:56px 18px 28px}
+  footer .f-wrap{grid-template-columns:1fr 1fr;gap:32px 24px}
+  footer .copy{flex-direction:column;text-align:center;gap:8px}
+}
+/* Phones */
+@media (max-width:480px){
+  .nav{padding:10px 14px}
+  .nav-logo img,.nav.scrolled .nav-logo img{height:34px}
+  .page-hero{height:38vh;min-height:220px}
+  .section{padding:48px 14px}
+  .section-head h2{font-size:23px}
+  footer .f-wrap{grid-template-columns:1fr;gap:28px}
+}
+/* Small phones (iPhone SE 등) */
+@media (max-width:360px){
+  .nav-logo img,.nav.scrolled .nav-logo img{height:30px}
+}

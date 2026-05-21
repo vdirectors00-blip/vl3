@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEDDING | 브이엘퍼스널컬러</title>
+<meta name="description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:type" content="website">
+<meta property="og:title" content="브이엘퍼스널컬러 · 프리미엄 토탈 이미지 컨설팅">
+<meta property="og:description" content="인천 송도 1:1 프라이빗 토탈 컨설팅 — 얼굴타입·골격·퍼스널컬러 통합 진단">
+<meta property="og:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://vdirectors00-blip.github.io/vl2/og-image.jpg">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="shared.css">
+<style>
+.wed-intro{text-align:center;padding:120px 32px 80px;max-width:900px;margin:0 auto}
+.wed-intro h2{font-size:46px;font-weight:800;letter-spacing:-1px;line-height:1.25;margin-bottom:22px}
+.wed-intro h2 em{font-style:normal;font-weight:800;color:inherit}
+.wed-intro p{color:var(--mute);font-size:15.5px;line-height:1.9}
+
+.wed-grid{max-width:1320px;margin:0 auto;padding:0 32px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.wed-card{position:relative;overflow:hidden;background:#fafafa;display:flex;flex-direction:column;transition:transform .5s,box-shadow .5s}
+.wed-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.1)}
+.wed-card .wc-img{aspect-ratio:4/5;overflow:hidden;background:#eee}
+.wed-card .wc-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.wed-card:hover .wc-img img{transform:scale(1.06)}
+.wed-card .wc-body{padding:36px 32px 40px}
+.wed-card .tag{font-size:11px;letter-spacing:3px;color:var(--mute);font-weight:700;text-transform:uppercase;margin-bottom:14px;display:block}
+.wed-card h3{font-size:30px;font-weight:800;letter-spacing:-.5px;margin-bottom:18px;line-height:1.2}
+.wed-card ul{list-style:none;display:grid;gap:8px;margin-bottom:24px}
+.wed-card ul li{font-size:14px;color:#444;padding-left:18px;position:relative}
+.wed-card ul li::before{content:'';position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--ink)}
+.wed-card .price-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:18px;border-top:1px solid var(--line);margin-bottom:22px}
+.wed-card .price-row .l{font-size:11px;letter-spacing:2.5px;color:var(--mute);font-weight:700;text-transform:uppercase}
+.wed-card .price-row .p{font-size:24px;font-weight:800}
+
+.flow{background:#0a0a0a;color:#fff;padding:120px 32px}
+.flow .wrap{max-width:1280px;margin:0 auto}
+.flow .section-head h2{color:#fff}
+.flow .section-eyebrow{color:#fff}
+.flow .section-eyebrow::after{background:#fff}
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px}
+.flow-step{padding-top:36px;border-top:1px solid rgba(255,255,255,.2);position:relative}
+.flow-step .num{position:absolute;top:-14px;background:#0a0a0a;padding-right:14px;font-size:12px;letter-spacing:3px;color:var(--point);font-weight:700}
+.flow-step h4{font-size:20px;font-weight:800;letter-spacing:-.3px;margin-bottom:12px}
+.flow-step p{font-size:14px;color:rgba(255,255,255,.7);line-height:1.8}
+
+.couple-band{padding:120px 32px;background:#fafafa;text-align:center}
+.couple-band h2{font-size:42px;font-weight:800;letter-spacing:-.8px;line-height:1.25;margin-bottom:18px;max-width:760px;margin-left:auto;margin-right:auto}
+.couple-band p{color:var(--mute);font-size:15.5px;margin-bottom:36px;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.85}
+
+@media (max-width:900px){
+  .wed-intro{padding:60px 16px 40px}
+  .wed-intro h2{font-size:28px}
+  .wed-grid{grid-template-columns:1fr;padding:0 16px 40px}
+  .flow,.couple-band{padding:60px 16px}
+  .flow-grid{grid-template-columns:1fr;gap:24px}
+  .couple-band h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="VL"></a>
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="nav-menu">
+    <a href="about.html">ABOUT</a>
+    <a href="program.html">PROGRAM</a>
+    <a href="wedding.html" class="current">WEDDING</a>
+    <a href="academy.html">ACADEMY</a>
+    <a href="review.html">REVIEW</a>
+    <a href="reservation.html">RESERVATION</a>
+  </div>
+</nav>
+<div class="nav-backdrop"></div>
+
+<section class="page-hero">
+  <div class="ph-bg" style="background-image:url('hero-wedding.jpg')"></div>
+  <div class="ph-inner">
+    <span class="ph-eyebrow">프리미엄 퍼스널컬러 컨설팅, 브이엘퍼스널컬러</span>
+    <h1>WEDDING</h1>
+  </div>
+</section>
+
+<div class="bread"><span><a href="index.html">HOME</a></span><span class="current">WEDDING</span></div>
+
+<section class="wed-intro reveal">
+  <span class="section-eyebrow">VL Wedding</span>
+  <h2>당신만의 분위기로 <em>완성</em>되는<br>웨딩 이미지 컨설팅</h2>
+  <p>예복 · 한복 · 본식 · 스튜디오 촬영까지. 신부와 신랑 모두를 위한 토탈 컨설팅으로,<br>인생에서 단 하루뿐인 그 순간을 가장 빛나는 모습으로 완성합니다.</p>
+</section>
+
+<section class="wed-grid">
+
+  <div class="wed-card reveal">
+    <div class="wc-img"><img src="wed-bride.jpg" alt="신부 웨딩 컨설팅"></div>
+    <div class="wc-body">
+      <span class="tag">For Bride</span>
+      <h3>신부<br>웨딩 컨설팅</h3>
+      <ul>
+        <li>웨딩드레스 · 한복 컬러 매칭</li>
+        <li>본식 · 스튜디오 메이크업 톤 가이드</li>
+        <li>예식 후 일상복 컨설팅 포함</li>
+        <li>약 150분 · 프라이빗 1:1</li>
+      </ul>
+      <div class="price-row"><span class="l">Price</span><span class="p">250,000원</span></div>
+      <a href="reservation.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="wed-card reveal">
+    <div class="wc-img"><img src="wed-groom.png" alt="신랑 웨딩 컨설팅"></div>
+    <div class="wc-body">
+      <span class="tag">For Groom</span>
+      <h3>신랑<br>웨딩 컨설팅</h3>
+      <ul>
+        <li>턱시도 · 수트 컬러 매칭</li>
+        <li>한복 · 캐주얼 예식 가이드</li>
+        <li>헤어 · 안경 · 액세서리 추천</li>
+        <li>약 120분 · 프라이빗 1:1</li>
+      </ul>
+      <div class="price-row"><span class="l">Price</span><span class="p">200,000원</span></div>
+      <a href="reservation.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+  <div class="wed-card reveal">
+    <div class="wc-img"><img src="wed-couple.jpg" alt="커플 웨딩 컨설팅"></div>
+    <div class="wc-body">
+      <span class="tag">For Couple · BEST</span>
+      <h3>커플<br>웨딩 컨설팅</h3>
+      <ul>
+        <li>신부 + 신랑 동시 진행</li>
+        <li>두 사람 조화로운 톤 매칭</li>
+        <li>예복부터 본식까지 풀 가이드</li>
+        <li>약 180분 · 프라이빗 1:1</li>
+      </ul>
+      <div class="price-row"><span class="l">Price</span><span class="p">400,000원</span></div>
+      <a href="reservation.html" class="btn-line">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROCESS -->
+<section class="flow reveal">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:32px">
+      <span class="section-eyebrow">Wedding Process</span>
+      <h2>웨딩 토탈 컨설팅 흐름</h2>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-step"><span class="num">— 01</span><h4>사전 상담</h4><p>예식 일정 · 컨셉 · 드레스 · 한복 종류 확인</p></div>
+      <div class="flow-step"><span class="num">— 02</span><h4>토탈 진단</h4><p>퍼스널컬러 · 얼굴타입 · 골격 진단으로 베스트 톤 도출</p></div>
+      <div class="flow-step"><span class="num">— 03</span><h4>웨딩 매칭</h4><p>예복 · 한복 · 메이크업 · 헤어 톤 조율 가이드</p></div>
+      <div class="flow-step"><span class="num">— 04</span><h4>실전 적용</h4><p>리허설 · 본식 당일 컬러 가이드북 · 카톡 Q&amp;A</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="couple-band reveal">
+  <span class="section-eyebrow">Special</span>
+  <h2>가장 특별한 날을 위한<br>웨딩 토탈 컨설팅, 지금 신청해보세요.</h2>
+  <a href="reservation.html" class="btn-solid" style="margin-top:8px">예약하기 <span class="ico"><svg><use href="#i-arrow"/></svg></span></a>
+</section>
+
+<footer>
+  <div class="f-wrap">
+    <div class="f-brand"><strong>VL · VISUAL LIGHT</strong>인천 연수구 송도과학로 70<br>송도AT센터 1동 (오피스동) 2314호<br>0507-1369-8334<br>매일 10:00 ~ 19:00</div>
+    <div><h5>Programs</h5><ul><li><a href="program.html">퍼스널 컬러 진단</a></li><li><a href="program.html">남성 프리미엄 컨설팅</a></li><li><a href="wedding.html">웨딩 컨설팅</a></li><li><a href="program.html">면접 · 프로필 · 소개팅</a></li></ul></div>
+    <div><h5>Academy</h5><ul><li><a href="academy.html">전문가 교육과정</a></li></ul></div>
+    <div><h5>Follow</h5><ul><li><a href="https://blog.naver.com/jujae7981/" target="_blank">Naver Blog</a></li><li><a href="javascript:void(0)">Instagram</a></li></ul></div>
+  </div>
+  <div class="copy"><span>© 2026 VL · Visual Light.</span><span>Personal Color · Image Consulting</span></div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.18,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>40),{passive:true});
+(function(){var n=document.getElementById("nav");if(!n)return;var t=n.querySelector(".nav-toggle");var b=document.querySelector(".nav-backdrop");function c(){n.classList.remove("open");document.body.style.overflow=""}if(t){t.addEventListener("click",function(){var o=n.classList.toggle("open");document.body.style.overflow=o?"hidden":"";t.setAttribute("aria-expanded",o)})}if(b){b.addEventListener("click",c)}n.querySelectorAll(".nav-menu a").forEach(function(a){a.addEventListener("click",c)});})();
+</script>
+</body>
+</html>
