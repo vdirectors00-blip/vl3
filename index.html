@@ -3,28 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VL VALUE LIGHT · 브이엘 이미지 컨설팅</title>
-<meta name="description" content="당신만의 가치를 디자인합니다. 이미지로 완성하는 프리미엄 브랜딩.">
+<title>VL VALUE LIGHT · IMAGE CONSULTING</title>
+<meta name="description" content="사람의 가치를 발견하고 이미지로 완성합니다. 퍼스널컬러 · 얼굴형 · 골격 분석 기반 토탈 이미지 컨설팅.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&family=Great+Vibes&family=Pinyon+Script&family=Allura&family=Italianno&family=Yellowtail&family=Mr+Dafoe&family=Mrs+Saint+Delafield&display=swap">
 <style>
 :root{
+  --ink:#0d0d0d;
+  --ink-2:#1a1a1a;
   --paper:#ffffff;
-  --primary:#402759;
-  --primary-deep:#2c1a3e;
-  --primary-soft:#e8e2ed;
-  --beige:#f5edd6;
-  --ink:#1a1a1a;
-  --ink-2:#3a3a3a;
-  --mute:#7d7780;
-  --line:#e1d9e0;
-  --gold:#c4a462;
-  --nav-h:88px;
+  --beige:#f0f0ef;
+  --beige-2:#e4e4e3;
+  --beige-deep:#0d0d0d;
+  --gold:#a48848;
+  --gold-soft:#6e5828;
+  --mute:#8c8478;
+  --line:#e6dec8;
+  --line-d:rgba(255,255,255,.14);
 }
-@media (max-width:1024px){:root{--nav-h:80px}}
-@media (max-width:768px){:root{--nav-h:72px}}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:auto}
+html{scroll-behavior:smooth}
 body{
   font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
   background:var(--paper);color:var(--ink);
@@ -34,710 +36,637 @@ body{
 h1,h2,h3,h4,h5,p,li,span{word-break:keep-all;overflow-wrap:break-word}
 img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-.ico{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
-.ico svg{display:block;width:100%;height:100%}
+.serif{font-family:'Cormorant Garamond',serif;font-weight:500}
 
-/* ── REVEAL ─────────────────────────── */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.5,0,.2,1),transform 1s cubic-bezier(.5,0,.2,1)}
-.reveal.in{opacity:1;transform:translateY(0)}
-
-/* ── NAV (purple header) ────────────── */
+/* ── NAV ─────────────────────── */
 .nav{
-  position:sticky;top:0;z-index:100;
-  background:var(--primary);
+  position:absolute;top:0;left:0;right:0;z-index:20;
   display:flex;align-items:center;justify-content:space-between;
-  padding:12px 56px;
+  padding:24px 56px;color:#f5efe2;
 }
 .nav-logo{display:inline-flex;align-items:center}
-.nav-logo img{height:64px;width:auto;display:block}
-.nav-menu{display:flex;gap:38px;align-items:center}
-.nav-menu a{
-  font-size:13px;letter-spacing:2px;text-transform:uppercase;
-  font-weight:600;color:#fff;transition:color .3s,opacity .3s;
-}
-.nav-menu a:hover{opacity:.7}
-.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:0;cursor:pointer;padding:8px}
-.nav-toggle span{display:block;width:22px;height:2px;background:#fff;transition:transform .35s,opacity .25s}
-.nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav.open .nav-toggle span:nth-child(2){opacity:0}
-.nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.42);opacity:0;visibility:hidden;transition:.4s;z-index:99}
+.nav-logo img{height:80px;width:auto;display:block}
+.nav-menu{display:flex;gap:42px;align-items:center}
+.nav-menu a{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#f5efe2;font-weight:500;transition:color .3s}
+.nav-menu a:hover{color:#c4a462}
+.nav-toggle{display:none;flex-direction:column;gap:5px;width:40px;height:40px;background:none;border:0;cursor:pointer;padding:10px 8px}
+.nav-toggle span{display:block;width:24px;height:1.5px;background:#f5efe2}
 
-/* ── HERO (scroll-triggered 4 slides) ─ */
-.hero-section{position:relative;height:calc(300vh - var(--nav-h))}
-.hero-stick{position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));width:100%;overflow:hidden;background:#000}
-.hero-slide{
-  position:absolute;inset:0;
-  opacity:0;visibility:hidden;
-  transition:opacity 1.2s cubic-bezier(.5,0,.2,1);
+/* ── HERO ─────────────────────── */
+.hero{
+  position:relative;min-height:100vh;
+  color:#f5efe2;
+  display:flex;align-items:center;
+  padding:120px 56px 80px;overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 95% at 76% 50%, #2a2620 0%, #1a1814 38%, #0e0c08 70%, transparent 100%),
+    linear-gradient(115deg, #050402 0%, #0d0b07 50%, #15110a 100%);
 }
-.hero-slide.active{opacity:1;visibility:visible}
-.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
-.hero-progress{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);z-index:5;
-  display:flex;gap:14px;
+.hero-num{
+  position:absolute;left:42px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:18px;font-size:11px;letter-spacing:3px;color:rgba(31,26,20,.45);
+  z-index:5;
 }
-.hero-progress span{width:36px;height:2px;background:rgba(255,255,255,.4);transition:background .4s,width .4s}
-.hero-progress span.active{background:#fff;width:56px}
-.hero-caption{
-  position:absolute;bottom:80px;left:0;right:0;text-align:center;z-index:5;color:#fff;
-  font-size:14px;letter-spacing:4px;font-weight:500;text-transform:uppercase;
-  opacity:0;transition:opacity 1s;
+.hero-num .n{display:flex;align-items:center;gap:14px}
+.hero-num .n::before{content:'';width:24px;height:1px;background:rgba(31,26,20,.3)}
+.hero-num .n.active{color:#1f1a14;font-weight:600}
+.hero-num .n.active::before{background:#a48848;width:42px;height:1.5px}
+.hero-grid{
+  max-width:1440px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:start;
+  position:relative;z-index:3;
 }
-.hero-caption.show{opacity:1}
-
-/* ── CAPTION band below hero ─────── */
-.caption-band{
-  text-align:center;padding:36px 24px 12px;background:var(--paper);
+.hero-left{padding-left:60px}
+.vl-mark{
+  position:relative;display:inline-block;
+  margin:-12px 0 36px;
+  height:clamp(280px,30vw,440px);
 }
-.caption-band p{
-  font-size:13px;letter-spacing:5px;color:var(--primary);font-weight:600;text-transform:uppercase;
+.vl-mark img{display:block;height:100%;width:auto}
+.hero-title{
+  font-family:'Nanum Myeongjo','Pretendard Variable',serif;
+  font-size:42px;font-weight:700;line-height:1.4;letter-spacing:-.5px;
+  margin-bottom:28px;color:#f5efe2;
 }
-.caption-band p span{margin-left:14px;letter-spacing:2px}
-
-/* ── MAIN COPY ──────────────────── */
-.main-copy{
-  text-align:center;padding:24px 32px 80px;background:var(--paper);
+.hero-sub{
+  font-size:17px;line-height:1.85;color:rgba(245,239,226,.65);
+  letter-spacing:.2px;max-width:520px;
+}
+.hero-right{position:relative;display:flex;justify-content:flex-end;align-items:flex-start;min-height:640px}
+.hero-photo{
   position:relative;
+  width:100%;max-width:580px;
 }
-.main-copy h2{
-  font-size:42px;font-weight:400;letter-spacing:-1px;line-height:1.5;color:var(--ink);
+.hero-slides{
+  position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#0a0908;
 }
-.main-copy h2 strong{color:var(--primary);font-weight:700}
-.main-copy .line{
-  display:block;width:1px;height:36px;background:var(--primary);
-  margin:32px auto 0;
-}
-
-/* ── BEFORE & AFTER ──────────────── */
-.ba-section{
-  background:var(--primary-soft);padding:80px 32px 100px;
-}
-.ba-section.ba-hero{padding:72px 32px 80px;position:relative}
-.ba-head{text-align:center;margin-bottom:48px}
-.ba-head .small{
-  font-size:18px;color:var(--ink);font-weight:400;letter-spacing:-.3px;margin-bottom:8px;display:block;
-}
-.ba-head h2{
-  font-size:36px;font-weight:800;letter-spacing:-.8px;color:var(--ink);
-}
-.ba-head h2 strong{color:var(--primary);font-weight:800}
-.ba-hero .ba-head{margin-bottom:56px}
-.ba-hero .ba-head .small{font-size:20px;margin-bottom:12px}
-.ba-hero .ba-head h2{font-size:48px;letter-spacing:-1px}
-.ba-row{
-  max-width:1280px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:12px;
-}
-.ba-row.three{grid-template-columns:repeat(3,1fr);max-width:1100px}
-.ba-hero .ba-row{max-width:1440px}
-.ba-hero .ba-row.three{max-width:1180px}
-
-/* slide container — 3 slides stacked, crossfade, height fits active slide */
-.ba-slides{position:relative;max-width:1440px;margin:0 auto;width:100%;transition:min-height .6s cubic-bezier(.5,0,.2,1)}
-.ba-slide{position:absolute;top:0;left:0;right:0;opacity:0;visibility:hidden;transition:opacity 1s cubic-bezier(.5,0,.2,1)}
-.ba-slide.active{opacity:1;visibility:visible}
-.ba-dots{display:flex;justify-content:center;gap:14px;margin-top:48px}
-.ba-dots span{width:36px;height:2px;background:rgba(64,39,89,.28);cursor:pointer;transition:background .35s,width .35s;display:block}
-.ba-dots span.active{background:var(--primary);width:56px}
-.ba-item{position:relative;overflow:hidden}
-.ba-img{aspect-ratio:3/4;background:#eee;overflow:hidden}
-.ba-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.ba-label{
-  background:#1a1a1a;color:#fff;
-  padding:14px;text-align:center;
-  font-size:15px;letter-spacing:2px;font-weight:600;
-}
-.ba-item.aft .ba-label{background:#9b7bd6;color:#fff}
-/* 라벨 없는 슬라이드(2,3)에도 동일 높이 영역 확보 — 1번 슬라이드와 셀 사이즈 매칭 */
-.ba-item:not(.bef):not(.aft)::after{
-  content:'\00a0';display:block;padding:14px;
-  font-size:15px;letter-spacing:2px;font-weight:600;line-height:1.6;
-  visibility:hidden;
-}
-
-/* ── VL 소개 ──────────────────── */
-.intro{padding:120px 56px;background:var(--paper)}
-.intro-grid{
-  max-width:1280px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-}
-.intro-text h2{
-  font-size:22px;font-weight:600;color:var(--primary);margin-bottom:18px;
-}
-.intro-text h3{
-  font-size:32px;font-weight:700;letter-spacing:-.8px;line-height:1.45;color:var(--ink);margin-bottom:24px;
-}
-.intro-text h3 strong{color:var(--primary);font-weight:800}
-.intro-text > p{
-  font-size:16px;color:var(--ink-2);line-height:1.9;margin-bottom:48px;
-}
-.intro-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.intro-card{
-  background:#faf8fb;border:1px solid var(--line);
-  padding:24px 22px;
-  transition:background .3s;
-}
-.intro-card:hover{background:#fff}
-.intro-card .ic{
-  width:36px;height:36px;background:var(--primary);color:#fff;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
-}
-.intro-card .ic svg{width:18px;height:18px}
-.intro-card h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px}
-.intro-card p{font-size:13px;color:var(--mute);line-height:1.65}
-
-/* Right side: image with circular rotating text + slideshow */
-.intro-visual{position:relative}
-.intro-slides{
-  position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#eee;
-}
-.intro-slide{
+.hero-slide{
   position:absolute;inset:0;opacity:0;visibility:hidden;
   transition:opacity 1.4s cubic-bezier(.5,0,.2,1);
 }
-.intro-slide.active{opacity:1;visibility:visible}
-.intro-slide img{width:100%;height:100%;object-fit:cover}
-
-/* Circular rotating text badge */
-.circle-badge{
-  position:absolute;top:-44px;left:-44px;z-index:5;
-  width:168px;height:168px;
-  animation:spin 16s linear infinite;
+.hero-slide.active{opacity:1;visibility:visible}
+.hero-slide img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:brightness(.92) contrast(1.04) saturate(.88);
 }
-.circle-badge svg{width:100%;height:100%;display:block}
-.circle-badge text{
-  fill:var(--primary);
+.hero-circle{
+  position:absolute;top:-44px;left:-44px;z-index:5;
+  width:180px;height:180px;
+  animation:heroSpin 16s linear infinite;
+  pointer-events:none;
+}
+.hero-circle svg{width:100%;height:100%;display:block}
+.hero-circle text{
+  fill:#c4a462;
   font-family:'Pretendard Variable','Pretendard',sans-serif;
   font-size:14px;letter-spacing:3px;font-weight:600;text-transform:uppercase;
 }
-@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes heroSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.hero-vtext{
+  position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  writing-mode:vertical-rl;text-orientation:mixed;
+  font-family:'Cormorant Garamond',serif;font-weight:500;
+  font-size:14px;letter-spacing:5px;color:rgba(31,26,20,.42);
+  text-transform:uppercase;
+  display:flex;flex-direction:column;gap:32px;z-index:5;
+}
+.hero-vtext .top{color:#a48848;font-size:15px;letter-spacing:6px}
+.hero-scroll{
+  position:absolute;left:60px;bottom:40px;font-size:10.5px;letter-spacing:4px;
+  color:rgba(31,26,20,.55);text-transform:uppercase;z-index:5;
+  display:flex;align-items:center;gap:14px;font-weight:600;
+}
+.hero-scroll::after{content:'';width:60px;height:1px;background:rgba(31,26,20,.35)}
 
-.intro-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:48px;
-  background:var(--primary);color:#fff;
-  padding:16px 52px;font-size:15px;letter-spacing:2px;font-weight:600;
-  transition:background .3s;
+/* ── STATS BAR ─────────────────── */
+.stats{
+  background:var(--beige);padding:64px 56px;
 }
-.intro-cta:hover{background:var(--primary-deep)}
-.intro-cta-wrap{text-align:center;margin-top:0}
-
-/* ── 전문 프로그램 ──────────────── */
-.programs{
-  background:var(--beige);padding:100px 56px 80px;text-align:center;
+.stats-grid{
+  max-width:1320px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
 }
-.programs h2{
-  font-size:34px;font-weight:400;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px;
-}
-.programs h2 strong{font-weight:700;color:var(--primary)}
-.programs > p{
-  font-size:17px;color:var(--ink);margin-bottom:50px;letter-spacing:-.2px;
-}
-.prog-grid{
-  max-width:1280px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
-}
-.prog-card{cursor:pointer;transition:opacity .3s}
-.prog-card:hover{opacity:.85}
-.prog-img{aspect-ratio:3/4;overflow:hidden;background:#eee}
-.prog-img img{width:100%;height:100%;object-fit:cover}
-.prog-card h4{
-  margin-top:18px;font-size:15px;font-weight:500;color:var(--ink);letter-spacing:-.2px;line-height:1.55;
-}
-.prog-more{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:48px;
-  border:2px solid var(--primary);color:var(--primary);background:transparent;
-  padding:14px 64px;font-size:15px;letter-spacing:3px;font-weight:600;
-  transition:background .3s,color .3s;
-}
-.prog-more:hover{background:var(--primary);color:#fff}
-
-/* ── LECTURES & WORKSHOPS ────────── */
-.lectures{padding:90px 56px;background:var(--paper)}
-.lec-head{max-width:1280px;margin:0 auto 38px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:18px}
-.lec-head .label{
-  font-size:11px;letter-spacing:4px;color:var(--primary);font-weight:600;text-transform:uppercase;display:block;margin-bottom:8px;
-}
-.lec-head h3{font-size:24px;font-weight:700;color:var(--ink);letter-spacing:-.4px}
-.lec-head .view{
-  font-size:12px;letter-spacing:3px;color:var(--ink);text-transform:uppercase;font-weight:600;
-  display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--ink);padding-bottom:6px;
-}
-.lec-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
-.lec-card{
-  background:#faf8fb;border:1px solid var(--line);padding:24px 22px;
-  transition:background .3s;
-}
-.lec-card:hover{background:#fff}
-.lec-card .ic{
-  width:34px;height:34px;background:var(--primary-soft);color:var(--primary);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
-}
-.lec-card .ic svg{width:16px;height:16px}
-.lec-card h4{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;letter-spacing:-.2px}
-.lec-card p{font-size:12.5px;color:var(--mute);line-height:1.55}
-
-/* ── CTA band ─────────────────── */
-.cta-band{
-  background:var(--primary-soft);padding:90px 56px;
-}
-.cta-band .wrap{
-  max-width:1280px;margin:0 auto;
-  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
-}
-.cta-band h2{font-size:24px;font-weight:500;color:var(--ink);margin-bottom:10px;letter-spacing:-.4px}
-.cta-band h3{
-  font-size:30px;font-weight:700;color:var(--ink);letter-spacing:-.6px;
-  border-bottom:2px solid var(--primary);display:inline-block;padding-bottom:4px;margin-bottom:22px;
-}
-.cta-band p{font-size:15px;color:var(--ink-2);line-height:1.8}
-.cta-band .btn-reserve{
-  border:2px solid var(--primary);color:var(--primary);background:transparent;
-  padding:18px 64px;font-size:16px;letter-spacing:2px;font-weight:600;
-  transition:background .3s,color .3s;display:inline-block;
-}
-.cta-band .btn-reserve:hover{background:var(--primary);color:#fff}
-
-/* ── FOOTER (purple) ──────────── */
-footer{
-  background:var(--primary);color:#fff;padding:64px 56px 40px;
-}
-footer .wrap{
-  max-width:1280px;margin:0 auto;
-  display:grid;grid-template-columns:1fr auto;gap:32px;align-items:flex-start;
-}
-footer h5{font-size:16px;font-weight:700;letter-spacing:.5px;margin-bottom:14px;color:#fff}
-footer p{font-size:14px;line-height:1.95;color:rgba(255,255,255,.88);margin-bottom:0}
-.f-sns{display:flex;gap:14px;align-items:center}
-.f-sns a{
-  width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);
+.stat{display:flex;align-items:center;gap:24px}
+.stat-ico{
+  flex:0 0 56px;width:56px;height:56px;
   display:flex;align-items:center;justify-content:center;
-  color:#fff;transition:background .3s;
+  color:var(--ink);
 }
-.f-sns a:hover{background:rgba(255,255,255,.22)}
-.f-sns svg{width:20px;height:20px}
+.stat-ico svg{width:36px;height:36px;stroke-width:1.4}
+.stat .num{
+  font-family:'Nanum Myeongjo','Pretendard Variable',serif;font-weight:700;
+  font-size:44px;line-height:1;letter-spacing:-1px;color:var(--ink);
+  display:flex;align-items:baseline;gap:6px;
+}
+.stat .num small{font-size:13px;letter-spacing:2px;color:var(--gold-soft);font-weight:600;font-family:'Pretendard Variable',sans-serif;text-transform:uppercase}
+.stat .lbl{font-size:13px;color:#5a5a5e;line-height:1.5;margin-top:6px;letter-spacing:.2px}
 
-/* ── RESPONSIVE ───────────────── */
-@media (max-width:1024px){
-  .nav{padding:10px 24px}
-  .nav-logo img{height:56px}
-  .intro,.programs,.lectures,.cta-band,footer{padding-left:24px;padding-right:24px}
-  .intro-grid{grid-template-columns:1fr;gap:64px}
-  .intro-visual{order:-1}
-  .lec-grid{grid-template-columns:repeat(3,1fr)}
-  .cta-band .wrap{grid-template-columns:1fr;text-align:center}
-  .cta-band .btn-reserve{margin:0 auto}
+/* ── WHAT WE DO ─────────────────── */
+.what{
+  padding:120px 56px;background:#fff;
 }
-@media (max-width:768px){
-  .nav{padding:10px 18px;flex-wrap:nowrap}
-  .nav-logo img{height:50px}
+.what-grid{
+  max-width:1320px;margin:0 auto;
+  display:grid;grid-template-columns:.95fr 1.4fr;gap:80px;
+}
+.what-left .label{
+  font-size:11px;letter-spacing:4px;color:var(--gold-soft);font-weight:700;text-transform:uppercase;margin-bottom:32px;display:block;
+}
+.what-left h2{
+  font-size:34px;font-weight:700;line-height:1.5;letter-spacing:-.5px;color:var(--ink);
+}
+.what-list{display:grid;grid-template-columns:repeat(3,1fr);gap:48px 40px}
+.what-item{}
+.what-item .ico{
+  width:48px;height:48px;display:flex;align-items:center;justify-content:center;
+  color:var(--gold-soft);margin-bottom:18px;
+}
+.what-item .ico svg{width:38px;height:38px;stroke-width:1.3}
+.what-item h4{
+  font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.2px;margin-bottom:8px;
+}
+.what-item p{font-size:13px;color:var(--mute);line-height:1.7;letter-spacing:.1px}
+
+/* ── PORTFOLIO ─────────────────── */
+.portfolio{
+  background:#ece4d3;padding:0;
+}
+.pf-grid{
+  display:grid;grid-template-columns:1fr 2.6fr;
+  align-items:stretch;min-height:540px;
+}
+.pf-left{
+  background:var(--beige-deep);color:#fff;
+  padding:96px 56px;display:flex;flex-direction:column;justify-content:center;
+}
+.pf-left .label{
+  font-size:11px;letter-spacing:4px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:28px;display:block;
+}
+.pf-left h2{
+  font-size:32px;font-weight:700;line-height:1.45;letter-spacing:-.5px;color:#fff;margin-bottom:42px;
+}
+.btn-more{
+  display:inline-flex;align-items:center;gap:18px;
+  padding:14px 28px;border:1px solid rgba(255,255,255,.35);
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:600;color:#fff;
+  transition:background .3s,border-color .3s,color .3s;
+  width:fit-content;
+}
+.btn-more:hover{background:#fff;border-color:#fff;color:var(--ink)}
+.btn-more::after{content:'→';font-size:14px}
+.pf-cards{
+  background:#ece4d3;padding:64px 48px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:start;
+}
+.pf-card{display:flex;flex-direction:column}
+.pf-card .img{aspect-ratio:3/4;overflow:hidden;background:#1a1610;margin-bottom:18px}
+.pf-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.5s cubic-bezier(.2,.8,.2,1)}
+.pf-card:hover .img img{transform:scale(1.04)}
+.pf-card h4{font-size:18px;font-weight:700;color:var(--ink);letter-spacing:-.3px;margin-bottom:10px}
+.pf-card p{font-size:14.5px;color:#6a604a;line-height:1.6;letter-spacing:.1px}
+
+/* ── DIRECTOR ─────────────────── */
+.director-sec{
+  background:#ffffff;color:var(--ink);padding:0;
+}
+.dir-grid{
+  display:grid;grid-template-columns:1fr 2.6fr;gap:0;
+  align-items:stretch;min-height:680px;position:relative;
+}
+.dir-photo{
+  position:relative;background:#ebebea;align-self:stretch;
+  overflow:visible;
+}
+.dir-photo .img{
+  position:absolute;right:-45%;bottom:0;z-index:3;
+}
+.dir-photo .img img{
+  max-height:620px;width:auto;height:auto;display:block;
+}
+.dir-photo .sig{
+  position:absolute;
+  font-family:'Allura','Parisienne','Great Vibes',cursive;font-weight:400;
+  font-size:150px;color:var(--gold);
+  letter-spacing:1px;line-height:.95;
+  pointer-events:none;z-index:1;opacity:.95;
+  white-space:nowrap;
+}
+.dir-photo .sig-1{top:8%;left:25%;transform:rotate(-4deg)}
+.dir-photo .sig-2{top:22%;left:42%;transform:rotate(-2deg)}
+.dir-right{
+  display:grid;grid-template-columns:1fr 1.5fr;gap:60px;
+  padding:180px 64px 60px 24%;align-items:start;
+}
+.dir-info .tag{font-size:13px;letter-spacing:3.5px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:22px;display:block}
+.dir-info h3{
+  font-size:38px;font-weight:800;letter-spacing:-.8px;margin-bottom:36px;color:var(--ink);
+}
+.dir-info ul{list-style:none;display:grid;gap:16px}
+.dir-info li{font-size:17px;color:#3a342c;padding-left:20px;position:relative;line-height:1.6;font-weight:500}
+.dir-info li::before{content:'';position:absolute;left:0;top:13px;width:10px;height:1px;background:var(--gold)}
+.dir-clients{padding-top:42px}
+.dir-clients h4{font-size:24px;color:var(--ink);font-weight:800;margin-bottom:32px;letter-spacing:-.4px;line-height:1.2}
+.client-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;align-items:stretch;justify-items:stretch;
+  border-top:1px solid #d8d2c4;border-left:1px solid #d8d2c4;
+}
+.client-cell{
+  width:100%;height:140px;
+  display:flex;align-items:center;justify-content:center;
+  padding:24px 28px;
+  border-right:1px solid #d8d2c4;border-bottom:1px solid #d8d2c4;
+  transition:background .3s;
+}
+.client-cell:hover{background:#fafaf6}
+.client-cell img{
+  max-width:85%;max-height:80%;width:auto;height:auto;
+  object-fit:contain;display:block;
+}
+
+/* ── CONTACT ─────────────────── */
+.contact{
+  background:var(--ink);color:#fff;padding:96px 56px 80px;border-top:1px solid var(--line-d);
+  --gold:#c0a06a;--gold-soft:#a08858;
+}
+.contact-grid{
+  max-width:1440px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 2fr .8fr;gap:60px;align-items:center;
+}
+.contact-left .tag{font-size:11px;letter-spacing:3.5px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:18px;display:block}
+.contact-left h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:14px;line-height:1.4}
+.contact-left p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
+.btn-inquire{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:14px 30px;background:var(--gold);color:var(--ink);
+  font-size:11.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;
+  transition:background .3s;
+}
+.btn-inquire:hover{background:#3a3a3e}
+.btn-inquire::after{content:'→';font-size:13px}
+.contact-info{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-left:1px solid var(--line-d);border-right:1px solid var(--line-d);padding:0 36px}
+.ci{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:14px 6px}
+.ci .ic{
+  width:46px;height:46px;border:1px solid rgba(255,255,255,.25);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--gold);
+}
+.ci .ic svg{width:18px;height:18px;stroke-width:1.5}
+.ci .v{font-size:13px;color:#fff;font-weight:600;letter-spacing:.1px;word-break:break-all}
+.ci small{font-size:10.5px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase}
+.contact-right{display:flex;flex-direction:column;align-items:center;gap:8px}
+.contact-right .mark-img{
+  width:auto;height:120px;display:block;margin-bottom:12px;
+}
+.contact-right .nm{font-size:14px;letter-spacing:4px;color:#fff;font-weight:700}
+.contact-right .desc{font-size:9.5px;letter-spacing:3px;color:rgba(255,255,255,.55);text-transform:uppercase}
+
+footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;padding:32px 24px;font-size:11px;letter-spacing:1.5px;border-top:1px solid var(--line-d)}
+
+/* ── RESPONSIVE ─────────────────── */
+@media (max-width:1200px){
+  .what-grid,.pf-grid{grid-template-columns:1fr;gap:48px}
+  .pf-cards{grid-template-columns:repeat(2,1fr)}
+  .dir-grid{grid-template-columns:1fr;gap:48px}
+  .contact-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+  .contact-right{align-items:center}
+  .contact-info{padding:24px 0;border-left:0;border-right:0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+}
+@media (max-width:900px){
+  .nav{padding:18px 24px}
+  .nav-menu{display:none}
   .nav-toggle{display:flex}
-  .nav-backdrop{display:block}
-  .nav.open .nav-backdrop{opacity:1;visibility:visible}
-  .nav-menu{
-    position:fixed;top:0;right:0;bottom:0;width:78%;max-width:320px;
-    background:var(--primary);flex-direction:column;align-items:flex-start;justify-content:flex-start;
-    gap:0;padding:90px 32px 40px;transform:translateX(105%);
-    transition:transform .4s cubic-bezier(.5,0,.2,1);z-index:101;
-    box-shadow:-12px 0 50px rgba(0,0,0,.18);
-  }
-  .nav.open .nav-menu{transform:translateX(0)}
-  .nav-menu a{font-size:15px;letter-spacing:1.5px;width:100%;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.16)}
-  .caption-band p{font-size:11.5px;letter-spacing:3px}
-  .caption-band p span{display:block;margin:6px 0 0;letter-spacing:1px}
-  .main-copy{padding:40px 18px 28px}
-  .main-copy h2{font-size:23px;line-height:1.55}
-  .main-copy .line{height:28px;margin-top:20px}
-  .ba-section{padding:54px 18px 64px}
-  .ba-section.ba-hero{padding:48px 18px 64px}
-  .ba-head h2{font-size:22px}
-  .ba-head .small{font-size:14px}
-  .ba-hero .ba-head{margin-bottom:32px}
-  .ba-hero .ba-head h2{font-size:28px}
-  .ba-hero .ba-head .small{font-size:15px;margin-bottom:8px}
-  .ba-row{grid-template-columns:repeat(2,1fr);gap:8px}
-  .ba-label{font-size:13px;padding:10px}
-  .ba-item:not(.bef):not(.aft)::after{font-size:13px;padding:10px}
-  .intro{padding:36px 18px 64px}
-  .intro-grid{gap:48px}
-  .intro-text h3{font-size:22px}
-  .intro-text > p{font-size:14.5px;margin-bottom:32px}
-  .intro-card h4{font-size:14px}
-  .intro-card p{font-size:12.5px}
-  .circle-badge{width:120px;height:120px;top:-30px;left:-20px}
-  .intro-cta{margin-top:36px;padding:14px 42px;font-size:14px}
-  .programs{padding:64px 18px}
-  .programs h2{font-size:24px}
-  .programs > p{font-size:14px;margin-bottom:36px}
-  .prog-grid{grid-template-columns:repeat(2,1fr);gap:14px}
-  .prog-card h4{font-size:13.5px;margin-top:14px}
-  .prog-more{padding:13px 48px;font-size:13px;margin-top:36px}
-  .lectures{padding:60px 18px}
-  .lec-head{margin-bottom:24px}
-  .lec-head h3{font-size:24px;font-weight:800;letter-spacing:-.5px}
-  .lec-head .label{font-size:10.5px;letter-spacing:3px;margin-bottom:6px}
-  .lec-head .view{font-size:11px;letter-spacing:2px;gap:6px;padding-bottom:4px}
-  /* 카드를 가로형 리스트로 — 아이콘 좌측 + 텍스트 우측 + 화살표 */
-  .lec-grid{display:grid;grid-template-columns:1fr;gap:10px}
-  .lec-card{
-    display:grid;
-    grid-template-columns:52px 1fr;
-    grid-template-rows:auto auto;
-    align-items:center;
-    column-gap:18px;row-gap:2px;
-    padding:20px 18px;
-    background:#faf8fb;border:1px solid var(--line);
-    transition:background .3s,border-color .3s;
-  }
-  .lec-card:hover{background:#fff;border-color:var(--primary-soft)}
-  .lec-card .ic{
-    grid-row:1/3;grid-column:1;
-    width:52px;height:52px;margin-bottom:0;
-    background:var(--primary);color:#fff;
-  }
-  .lec-card .ic svg{width:22px;height:22px}
-  .lec-card h4{
-    grid-row:1;grid-column:2;align-self:end;
-    font-size:16px;font-weight:700;line-height:1.3;margin-bottom:0;letter-spacing:-.3px;
-  }
-  .lec-card p{
-    grid-row:2;grid-column:2;align-self:start;
-    font-size:13px;line-height:1.55;color:var(--mute);
-  }
-  .cta-band{padding:64px 18px}
-  .cta-band h2{font-size:18px}
-  .cta-band h3{font-size:22px}
-  .cta-band p{font-size:14px}
-  .cta-band .btn-reserve{padding:16px 48px;font-size:14px}
-  footer{padding:48px 18px 32px}
-  footer .wrap{grid-template-columns:1fr;gap:32px}
-  footer p{font-size:13px}
-  .f-sns{justify-content:flex-start}
+  .hero{padding:100px 24px 60px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:36px}
+  .hero-left{padding-left:24px}
+  .hero-num{left:14px}
+  .hero-scroll{left:24px;bottom:24px}
+  .hero-vtext{display:none}
+  .vl-mark{font-size:30vw;margin-bottom:24px}
+  .hero-title{font-size:22px}
+  .hero-sub{font-size:13px}
+  .hero-right{justify-content:center;align-items:center;min-height:auto}
+  .hero-photo{width:100%;max-width:380px}
+  .stats{padding:40px 20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  .stat{gap:14px}
+  .stat-ico{flex:0 0 44px;width:44px;height:44px}
+  .stat-ico svg{width:28px;height:28px}
+  .stat .num{font-size:30px}
+  .what,.portfolio,.director-sec,.contact{padding:64px 20px}
+  .what-left h2,.pf-left h2{font-size:24px}
+  .what-list{grid-template-columns:repeat(2,1fr);gap:32px 18px}
+  .what-item .ico{width:40px;height:40px}
+  .pf-cards{grid-template-columns:1fr 1fr;gap:10px}
+  .dir-info h3{font-size:22px}
+  .dir-photo .sig{font-size:34px;left:-6px;bottom:18px}
+  .client-grid{grid-template-columns:repeat(2,1fr)}
+  .contact-info{grid-template-columns:repeat(2,1fr);gap:18px}
 }
 @media (max-width:480px){
-  .ba-head h2{font-size:18px}
-  .ba-hero .ba-head h2{font-size:22px}
-  .ba-hero .ba-head .small{font-size:13px}
-  .intro-text h3{font-size:19px}
-  .programs h2{font-size:20px}
+  .stats-grid{grid-template-columns:1fr;gap:18px}
+  .what-list{grid-template-columns:1fr;gap:28px}
+  .pf-cards{grid-template-columns:1fr;gap:14px}
+  .client-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
+<!-- ICONS DEFS -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="i-face" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 10v.01M15 10v.01M8.5 15c1 .8 2.2 1.2 3.5 1.2s2.5-.4 3.5-1.2"/></g></symbol>
-    <symbol id="i-style" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M8 3l4 3 4-3 5 3-2 4-3-1v11H6V9L3 10 1 6z"/></symbol>
-    <symbol id="i-brush" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-10 10H4v-6z"/><path d="M11 7l6 6"/></g></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15 19c0-2 1.5-3.5 4-3.5s3 1.5 3 3"/></g></symbol>
-    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></g></symbol>
-    <symbol id="i-building" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h2M14 8h2M8 12h2M14 12h2M8 16h2M14 16h2"/></g></symbol>
-    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3 19v-1.5C3 15 5.2 13 8 13s5 2 5 4.5V19M14 19v-1c0-2 1.8-3.5 4-3.5s3 1.5 3 3v1.5"/></g></symbol>
-    <symbol id="i-group" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><circle cx="5" cy="10" r="2.2"/><circle cx="19" cy="10" r="2.2"/><path d="M6 20v-1.5C6 16 8.7 14 12 14s6 2 6 4.5V20M1 20v-1c0-2 1.8-3.5 4-3.5M19 15.5c2.2 0 4 1.5 4 3.5v1"/></g></symbol>
-    <symbol id="i-camera" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h3l2-3h8l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="4"/></g></symbol>
-    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></g></symbol>
-    <symbol id="i-blog" viewBox="0 0 24 24"><text x="12" y="17.5" text-anchor="middle" font-family="Pretendard, system-ui, sans-serif" font-size="16" font-weight="900" fill="currentColor">B</text></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></g></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.7-5 6-5s6 2 6 5M15 19c0-2 1.5-3.5 4-3.5s3 1.5 3 3"/></g></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></g></symbol>
+    <symbol id="i-palette" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1.5 1-2.5s-.5-2.5 1-2.5h2a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="10" r="1" fill="currentColor"/><circle cx="11" cy="6.5" r="1" fill="currentColor"/><circle cx="15.5" cy="8" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-face" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="11" rx="5.5" ry="7.5"/><path d="M6.5 10.2c-.9.15-1.55.95-1.55 1.85 0 .9.65 1.7 1.55 1.85"/><path d="M17.5 10.2c.9.15 1.55.95 1.55 1.85 0 .9-.65 1.7-1.55 1.85"/></g></symbol>
+    <symbol id="i-frame" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2.2"/><path d="M9 7.5c-.8.9-1.8 2.6-1.8 4.2v3.5c0 .5.4.8.8.8h7.6c.4 0 .8-.3.8-.8v-3.5c0-1.6-1-3.3-1.8-4.2"/><path d="M9 16l-1 5.5M15 16l1 5.5"/></g></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></g></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M12 16v4M8 20h8"/></g></symbol>
+    <symbol id="i-tie" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l-1 4 2 11-4 4-4-4 2-11z"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-3 2c1 2 3 4 5 5l2-3 5 2v4c0 1-1 2-2 2-9 0-15-6-15-15 0-1 1-2 2-2z"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 7 9-7"/></g></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-naver" viewBox="0 0 24 24"><path fill="currentColor" d="M6 5h4l4 7V5h4v14h-4l-4-7v7H6z"/></symbol>
   </defs>
 </svg>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <a href="index.html" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
-  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  <div class="nav-menu">
-    <a href="about.html">ABOUT</a>
-    <a href="program.html">PROGRAM</a>
-    <a href="wedding.html">WEDDING</a>
-    <a href="academy.html">ACADEMY</a>
-    <a href="review.html">REVIEW</a>
-    <a href="reservation.html">RESERVATION</a>
-  </div>
-</nav>
-<div class="nav-backdrop"></div>
-
-<!-- HERO BANNER · 3 자동 슬라이드 -->
-<section class="ba-section ba-hero reveal" id="baHero">
-  <div class="ba-slides">
-
-    <!-- SLIDE 1 · Before & After -->
-    <div class="ba-slide active">
-      <div class="ba-head">
-        <span class="small">Before &amp; After로 보는</span>
-        <h2><strong>퍼스널컬러</strong> 이미지 브랜딩</h2>
-      </div>
-      <div class="ba-row">
-        <div class="ba-item bef">
-          <div class="ba-img"><img src="man-be.png" alt="남성 Before"></div>
-          <div class="ba-label">Before</div>
-        </div>
-        <div class="ba-item aft">
-          <div class="ba-img"><img src="man-aft.jpg" alt="남성 After"></div>
-          <div class="ba-label">After</div>
-        </div>
-        <div class="ba-item bef">
-          <div class="ba-img"><img src="woman-be.jpg" alt="여성 Before"></div>
-          <div class="ba-label">Before</div>
-        </div>
-        <div class="ba-item aft">
-          <div class="ba-img"><img src="woman-aft.jpg" alt="여성 After"></div>
-          <div class="ba-label">After</div>
-        </div>
-      </div>
+<!-- ──────── HERO ──────── -->
+<section class="hero">
+  <nav class="nav">
+    <a href="#" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
+    <div class="nav-menu">
+      <a href="#what">ABOUT</a>
+      <a href="#what">SERVICE</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#portfolio">LECTURE</a>
+      <a href="#contact">CONTACT</a>
     </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
 
-    <!-- SLIDE 2 · 프리미엄 이미지 브랜딩 -->
-    <div class="ba-slide">
-      <div class="ba-head">
-        <span class="small">VL VALUE LIGHT</span>
-        <h2>당신을 위한 <strong>프리미엄 이미지 브랜딩</strong></h2>
-      </div>
-      <div class="ba-row">
-        <div class="ba-item"><div class="ba-img"><img src="e1.jpg" alt="프리미엄 이미지 브랜딩 01"></div></div>
-        <div class="ba-item"><div class="ba-img"><img src="e2.jpg" alt="프리미엄 이미지 브랜딩 02"></div></div>
-        <div class="ba-item"><div class="ba-img"><img src="e3.jpg" alt="프리미엄 이미지 브랜딩 03"></div></div>
-        <div class="ba-item"><div class="ba-img"><img src="e4.jpg" alt="프리미엄 이미지 브랜딩 04"></div></div>
-      </div>
-    </div>
-
-    <!-- SLIDE 3 · K-Beauty 체험 -->
-    <div class="ba-slide">
-      <div class="ba-head">
-        <span class="small">For Global Visitors</span>
-        <h2>외국인 맞춤 <strong>K-Beauty</strong> 체험 프로그램</h2>
-      </div>
-      <div class="ba-row">
-        <div class="ba-item"><div class="ba-img"><img src="g1.jpg" alt="K-Beauty 체험 01"></div></div>
-        <div class="ba-item"><div class="ba-img"><img src="g2.jpg" alt="K-Beauty 체험 02"></div></div>
-        <div class="ba-item"><div class="ba-img"><img src="g3.jpg" alt="K-Beauty 체험 03"></div></div>
-        <div class="ba-item"><div class="ba-img"><img src="g4.jpg" alt="K-Beauty 체험 04"></div></div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="ba-dots" aria-hidden="true">
-    <span class="active"></span><span></span><span></span>
-  </div>
-</section>
-
-<!-- CAPTION BAND -->
-<div class="caption-band">
-  <p>VL VALUE LIGHT <span style="font-weight:500;color:var(--ink-2)">브이엘이미지컨설팅</span></p>
-</div>
-
-<!-- MAIN COPY -->
-<section class="main-copy reveal">
-  <h2>당신만의 <strong>가치</strong>를 디자인합니다.<br>이미지로 완성하는 <strong>프리미엄 브랜딩</strong></h2>
-  <span class="line"></span>
-</section>
-
-<!-- VL 소개 -->
-<section class="intro reveal">
-  <div class="intro-grid">
-    <div class="intro-text">
-      <h2>브이엘 이미지컨설팅은</h2>
-      <h3><strong>퍼스널컬러, 얼굴형, 체형 분석</strong>을 기반으로<br>개인의 분위기와 강점을 분석하는<br>토탈 이미지 컨설팅 브랜드입니다</h3>
-      <div class="intro-cards">
-        <div class="intro-card">
-          <span class="ic"><svg><use href="#i-face"/></svg></span>
-          <h4>얼굴형 · 체형 분석</h4>
-          <p>얼굴형과 체형을 함께 분석하여 최적의 스타일을 제안합니다</p>
-        </div>
-        <div class="intro-card">
-          <span class="ic"><svg><use href="#i-style"/></svg></span>
-          <h4>실전 스타일링</h4>
-          <p>실제 스타일링과 패션 방향까지 연결되는 실전형 컨설팅</p>
-        </div>
-        <div class="intro-card">
-          <span class="ic"><svg><use href="#i-brush"/></svg></span>
-          <h4>패션 실무 기반</h4>
-          <p>패션 브랜드 실무 경력을 바탕한 전문적인 스타일 제안</p>
-        </div>
-        <div class="intro-card">
-          <span class="ic"><svg><use href="#i-users"/></svg></span>
-          <h4>다양한 컨설팅</h4>
-          <p>남성 · 여성 · 웨딩 등 다양한 컨설팅 가능</p>
-        </div>
-      </div>
-      <div class="intro-cta-wrap">
-        <a href="about.html" class="intro-cta">VL 소개</a>
-      </div>
-    </div>
-    <div class="intro-visual">
-      <span class="circle-badge" aria-hidden="true">
-        <svg viewBox="0 0 200 200">
-          <defs>
-            <path id="circlePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
-          </defs>
-          <text>
-            <textPath href="#circlePath">VL VALUE LIGHT · VL VALUE LIGHT · VL VALUE LIGHT · </textPath>
-          </text>
-        </svg>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <span class="vl-mark" aria-label="VL VALUE LIGHT">
+        <img src="vl-symbol.png" alt="VL VALUE LIGHT">
       </span>
-      <div class="intro-slides">
-        <div class="intro-slide active"><img src="vl-1.jpg" alt="VL 1"></div>
-        <div class="intro-slide"><img src="vl-2.jpg" alt="VL 2"></div>
-        <div class="intro-slide"><img src="vl-3.jpg" alt="VL 3"></div>
-        <div class="intro-slide"><img src="vl-4.jpg" alt="VL 4"></div>
-        <div class="intro-slide"><img src="vl-5.jpg" alt="VL 5"></div>
+      <h1 class="hero-title">사람의 가치를 발견하고<br>이미지로 완성합니다</h1>
+      <p class="hero-sub">퍼스널컬러 · 얼굴형 · 골격 분석을 기반으로<br>개인과 기업의 이미지를 설계합니다</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-photo">
+        <span class="hero-circle" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs>
+              <path id="heroCirclePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
+            </defs>
+            <text>
+              <textPath href="#heroCirclePath">VL VALUE LIGHT · VL VALUE LIGHT · VL VALUE LIGHT · </textPath>
+            </text>
+          </svg>
+        </span>
+        <div class="hero-slides">
+          <div class="hero-slide active"><img src="vl-1.jpg" alt="VL 1"></div>
+          <div class="hero-slide"><img src="vl-2.jpg" alt="VL 2"></div>
+          <div class="hero-slide"><img src="vl-3.jpg" alt="VL 3"></div>
+          <div class="hero-slide"><img src="vl-4.jpg" alt="VL 4"></div>
+          <div class="hero-slide"><img src="vl-5.jpg" alt="VL 5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ──────── STATS ──────── -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="stat-ico"><svg><use href="#i-user"/></svg></span>
+      <div>
+        <div class="num"><span class="count" data-target="15">0</span><small>YEARS</small></div>
+        <div class="lbl">패션 실무 경력</div>
+      </div>
+    </div>
+    <div class="stat">
+      <span class="stat-ico"><svg><use href="#i-cap"/></svg></span>
+      <div>
+        <div class="num"><span class="count" data-target="100">0</span><small>+</small></div>
+        <div class="lbl">기업·기관 강의 진행</div>
+      </div>
+    </div>
+    <div class="stat">
+      <span class="stat-ico"><svg><use href="#i-people"/></svg></span>
+      <div>
+        <div class="num"><span class="count" data-target="2000" data-format="comma">0</span><small>+</small></div>
+        <div class="lbl">이미지 컨설팅 진행</div>
+      </div>
+    </div>
+    <div class="stat">
+      <span class="stat-ico"><svg><use href="#i-badge"/></svg></span>
+      <div>
+        <div class="num"><span class="count" data-target="3">0</span></div>
+        <div class="lbl">전문 자격 보유</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 전문 프로그램 -->
-<section class="programs reveal">
-  <h2>VL <strong>전문 프로그램</strong></h2>
-  <p>나만의 분위기를 찾아주는 토탈 이미지분석 부터 실전 컨설팅까지</p>
-  <div class="prog-grid">
-    <a href="javascript:void(0)" class="prog-card">
-      <div class="prog-img"><img src="s-p.jfif" alt="퍼스널컬러 진단"></div>
-      <h4>퍼스널컬러 진단<br>토탈 이미지 컨설팅</h4>
-    </a>
-    <a href="javascript:void(0)" class="prog-card">
-      <div class="prog-img"><img src="s-m.jpg" alt="남성 이미지 컨설팅"></div>
-      <h4>남성 이미지 컨설팅</h4>
-    </a>
-    <a href="javascript:void(0)" class="prog-card">
-      <div class="prog-img"><img src="s-w.jpg" alt="웨딩 컨설팅"></div>
-      <h4>웨딩 컨설팅</h4>
-    </a>
-    <a href="javascript:void(0)" class="prog-card">
-      <div class="prog-img"><img src="s-s.jpg" alt="스타일링 동행쇼핑"></div>
-      <h4>스타일링 및 동행 쇼핑</h4>
-    </a>
-  </div>
-  <a href="program.html" class="prog-more">MORE</a>
-</section>
-
-<!-- LECTURES & WORKSHOPS -->
-<section class="lectures reveal">
-  <div class="lec-head">
-    <div>
-      <span class="label">Lectures &amp; Workshops</span>
-      <h3>5가지 교육 프로그램</h3>
+<!-- ──────── WHAT WE DO ──────── -->
+<section class="what" id="what">
+  <div class="what-grid">
+    <div class="what-left">
+      <span class="label">WHAT WE DO</span>
+      <h2>당신의 가치를<br>가장 잘 보여주는<br>이미지를 디자인합니다</h2>
     </div>
-    <a href="javascript:void(0)" class="view">VIEW ALL <span class="ico" style="width:12px;height:12px"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
-  </div>
-  <div class="lec-grid">
-    <div class="lec-card">
-      <span class="ic"><svg><use href="#i-cap"/></svg></span>
-      <h4>학교 · 대학교 특강</h4>
-      <p>학생을 위한 이미지 메이킹</p>
-    </div>
-    <div class="lec-card">
-      <span class="ic"><svg><use href="#i-building"/></svg></span>
-      <h4>기업 이미지 메이킹</h4>
-      <p>직장인 전문 이미지 교육</p>
-    </div>
-    <div class="lec-card">
-      <span class="ic"><svg><use href="#i-people"/></svg></span>
-      <h4>교직원 · 학부모 교육</h4>
-      <p>교육 현장 이미지 교육</p>
-    </div>
-    <div class="lec-card">
-      <span class="ic"><svg><use href="#i-group"/></svg></span>
-      <h4>퍼스널컬러 체험</h4>
-      <p>체험형 컬러 진단 워크숍</p>
-    </div>
-    <div class="lec-card">
-      <span class="ic"><svg><use href="#i-camera"/></svg></span>
-      <h4>뷰티 · 헤어샵 협업</h4>
-      <p>전문가 협업 교육</p>
+    <div class="what-list">
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-palette"/></svg></span>
+        <h4>퍼스널컬러 컨설팅</h4>
+        <p>개인의 고유한 매력을 찾아주는 컬러 분석</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-face"/></svg></span>
+        <h4>얼굴형 진단</h4>
+        <p>얼굴형 분석을 통한 이미지 밸런스 설계</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-frame"/></svg></span>
+        <h4>골격(바디프레임) 진단</h4>
+        <p>체형 분석을 통한 스타일링 솔루션 제안</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-bag"/></svg></span>
+        <h4>쇼핑 동행</h4>
+        <p>체형과 이미지에 맞는 맞춤 쇼핑 동행</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-board"/></svg></span>
+        <h4>기업 강의</h4>
+        <p>조직의 이미지 향상을 위한 맞춤형 교육 프로그램</p>
+      </div>
+      <div class="what-item">
+        <span class="ico"><svg><use href="#i-tie"/></svg></span>
+        <h4>취업·면접 컨설팅</h4>
+        <p>합격을 부르는 이미지 전략 컨설팅</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA band -->
-<section class="cta-band reveal">
-  <div class="wrap">
-    <div>
-      <h2>프리미엄 이미지 컨설팅이란?</h2>
-      <h3>나의 강점을 찾는 시간</h3>
-      <p>아직 발견하지 못한, 개인의 분위기와 강점을 전문가가 찾아드립니다.<br>한 번의 컨설팅으로 변화된 라이프 스타일을 경험해 보세요.</p>
+<!-- ──────── PORTFOLIO ──────── -->
+<section class="portfolio" id="portfolio">
+  <div class="pf-grid">
+    <div class="pf-left">
+      <span class="label">OUR PORTFOLIO</span>
+      <h2>다양한 경험과<br>전문성으로<br>신뢰를 만듭니다</h2>
+      <a href="#" class="btn-more">VIEW MORE</a>
     </div>
-    <a href="reservation.html" class="btn-reserve">예약하기</a>
+    <div class="pf-cards">
+      <div class="pf-card">
+        <div class="img"><img src="기업강의.jpg" alt="기업 강의"></div>
+        <h4>기업 강의</h4>
+        <p>삼성, 공공기관, 기업 등 다수 출강</p>
+      </div>
+      <div class="pf-card">
+        <div class="img"><img src="p-consult.jpg" alt="이미지 컨설팅"></div>
+        <h4>이미지 컨설팅</h4>
+        <p>개인별 맞춤 분석 및 1:1 컨설팅</p>
+      </div>
+      <div class="pf-card">
+        <div class="img"><img src="학교강의.jpg" alt="학교·기관 출강"></div>
+        <h4>학교·기관 출강</h4>
+        <p>대학, 고등학교, 관공서 진로 및 이미지 교육</p>
+      </div>
+      <div class="pf-card">
+        <div class="img"><img src="쇼핑동행.jpg" alt="쇼핑 동행"></div>
+        <h4>쇼핑 동행</h4>
+        <p>개인 스타일에 맞는 쇼핑 가이드</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="wrap">
-    <div>
-      <h5>VL · VALUE LIGHT</h5>
-      <p>브이엘이미지 컨설팅<br>대표자: 박주해<br>주소: 인천 연수구 송도과학로 70, 송도AT센터 1동 (오피스동) 2314호<br>대표번호: 0507-1369-8334</p>
+<!-- ──────── DIRECTOR ──────── -->
+<section class="director-sec">
+  <div class="dir-grid">
+    <div class="dir-photo">
+      <span class="sig sig-1">Park</span>
+      <span class="sig sig-2">Juhae</span>
+      <div class="img"><img src="D1.png" alt="대표 박주해"></div>
     </div>
-    <div class="f-sns">
-      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
-      <a href="https://blog.naver.com/jujae7981/" target="_blank" rel="noopener" aria-label="Naver Blog"><svg><use href="#i-blog"/></svg></a>
+    <div class="dir-right">
+      <div class="dir-info">
+        <span class="tag">Director</span>
+        <h3>대표 박주해</h3>
+        <ul>
+          <li>패션 실무 경력 15년</li>
+          <li>일본 얼굴형 진단 1급</li>
+          <li>일본 골격 진단 1급</li>
+          <li>퍼스널컬러 전문강사</li>
+          <li>기업·학교·기관 강의 다수 진행</li>
+        </ul>
+      </div>
+      <div class="dir-clients">
+        <h4>주요 출강·협업 기관</h4>
+        <div class="client-grid">
+          <div class="client-cell"><img src="강서구청.png" alt="강서구청"></div>
+          <div class="client-cell"><img src="삼성.png" alt="SAMSUNG BIOEPIS"></div>
+          <div class="client-cell"><img src="인하대학교.jpg" alt="인하대학교"></div>
+          <div class="client-cell"><img src="창원여고.JPG" alt="창원여자고등학교"></div>
+          <div class="client-cell"><img src="의료원.png" alt="국립중앙의료원"></div>
+          <div class="client-cell"><img src="명지병원.png" alt="명지병원"></div>
+        </div>
+      </div>
     </div>
   </div>
-</footer>
+</section>
+
+<!-- ──────── CONTACT ──────── -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <span class="tag">Contact</span>
+      <h3>협업 및 강의 문의</h3>
+      <p>기업 강의, 컨설팅, 협업 제안 등<br>언제든지 문의주세요.</p>
+      <a href="mailto:vl.director00@gmail.com" class="btn-inquire">문의하기</a>
+    </div>
+    <div class="contact-info">
+      <a href="tel:01054901146" class="ci">
+        <span class="ic"><svg><use href="#i-phone"/></svg></span>
+        <small>Phone</small>
+        <span class="v">010-5490-1146</span>
+      </a>
+      <a href="mailto:vl.director00@gmail.com" class="ci">
+        <span class="ic"><svg><use href="#i-mail"/></svg></span>
+        <small>Mail</small>
+        <span class="v">vl.director00<br>@gmail.com</span>
+      </a>
+      <a href="https://www.instagram.com/value_light_" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg><use href="#i-ig"/></svg></span>
+        <small>Instagram</small>
+        <span class="v">@value_light_</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/1079886156?placePath=/ticket?entry=plt&amp;from=map&amp;fromPanelNum=1&amp;additionalHeight=76&amp;timestamp=202606181427&amp;locale=ko&amp;svcName=map_pcv5&amp;from=map&amp;fromPanelNum=1&amp;additionalHeight=76&amp;timestamp=202606181427&amp;locale=ko&amp;svcName=map_pcv5&amp;searchType=place&amp;lng=126.6653853&amp;lat=37.3803547&amp;c=15.00,0,0,0,dh" target="_blank" rel="noopener" class="ci">
+        <span class="ic"><svg><use href="#i-naver"/></svg></span>
+        <small>Reservation</small>
+        <span class="v">네이버 예약</span>
+      </a>
+    </div>
+    <div class="contact-right">
+      <img class="mark-img" src="vl-symbol.png" alt="VL Symbol">
+      <span class="nm">VL VALUE LIGHT</span>
+      <span class="desc">IMAGE CONSULTING</span>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">© 2026 VL · VALUE LIGHT IMAGE CONSULTING. All Rights Reserved.</footer>
 
 <script>
-// Reveal on scroll
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-const nav=document.getElementById('nav');
-
-// Hamburger
+// Hero auto slideshow (5 slides crossfade)
 (function(){
-  const t=nav.querySelector('.nav-toggle');
-  const b=document.querySelector('.nav-backdrop');
-  function close(){nav.classList.remove('open');document.body.style.overflow=''}
-  if(t)t.addEventListener('click',()=>{const o=nav.classList.toggle('open');document.body.style.overflow=o?'hidden':''});
-  if(b)b.addEventListener('click',close);
-  nav.querySelectorAll('.nav-menu a').forEach(a=>a.addEventListener('click',close));
+  const slides = document.querySelectorAll('.hero-slide');
+  if(slides.length < 2) return;
+  let i = 0;
+  setInterval(() => {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+  }, 3800);
 })();
 
-// VL intro auto slideshow (5 slides)
+// Stats count-up on scroll into view
 (function(){
-  const slides=document.querySelectorAll('.intro-slide');
-  if(slides.length<2)return;
-  let i=0;
-  setInterval(()=>{
-    slides[i].classList.remove('active');
-    i=(i+1)%slides.length;
-    slides[i].classList.add('active');
-  },3800);
-})();
-
-// Hero banner auto slider (3 slides, crossfade, height adapts to active)
-(function(){
-  const wrap=document.querySelector('#baHero .ba-slides');
-  const slides=document.querySelectorAll('#baHero .ba-slide');
-  const dots=document.querySelectorAll('#baHero .ba-dots span');
-  if(!wrap||slides.length<2)return;
-  let i=0,timer;
-  function fit(){
-    if(slides[i]) wrap.style.minHeight=slides[i].offsetHeight+'px';
+  const counters = document.querySelectorAll('.count');
+  if(!counters.length) return;
+  function animate(el){
+    const target = +el.dataset.target;
+    const format = el.dataset.format;
+    const duration = 1800;
+    const startT = performance.now();
+    function tick(now){
+      const t = Math.min(1, (now - startT) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.floor(target * eased);
+      el.textContent = format === 'comma' ? val.toLocaleString() : val;
+      if(t < 1) requestAnimationFrame(tick);
+      else el.textContent = format === 'comma' ? target.toLocaleString() : target;
+    }
+    requestAnimationFrame(tick);
   }
-  function show(n){
-    slides[i].classList.remove('active');
-    dots[i]&&dots[i].classList.remove('active');
-    i=(n+slides.length)%slides.length;
-    slides[i].classList.add('active');
-    dots[i]&&dots[i].classList.add('active');
-    fit();
-  }
-  function start(){timer=setInterval(()=>show(i+1),5500)}
-  function reset(){clearInterval(timer);start()}
-  dots.forEach((d,idx)=>d.addEventListener('click',()=>{show(idx);reset()}));
-  // measure once images are decoded; also on full load & resize
-  function refit(){requestAnimationFrame(fit)}
-  refit();
-  window.addEventListener('load',refit);
-  window.addEventListener('resize',refit);
-  wrap.querySelectorAll('img').forEach(img=>{
-    if(img.complete) return;
-    img.addEventListener('load',refit,{once:true});
-  });
-  start();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        animate(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => io.observe(c));
 })();
 </script>
+
 </body>
 </html>
