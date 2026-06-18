@@ -324,9 +324,20 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
 
 /* ── RESPONSIVE ─────────────────── */
 @media (max-width:1200px){
-  .what-grid,.pf-grid{grid-template-columns:1fr;gap:48px}
-  .pf-cards{grid-template-columns:repeat(2,1fr)}
-  .dir-grid{grid-template-columns:1fr;gap:48px}
+  .what-grid{grid-template-columns:1fr;gap:48px}
+  .pf-grid{grid-template-columns:1fr;min-height:auto}
+  .pf-left{padding:60px 32px;align-items:center;text-align:center}
+  .pf-cards{padding:48px 24px;grid-template-columns:repeat(4,1fr);gap:14px}
+  .dir-grid{grid-template-columns:1fr;min-height:auto}
+  .dir-photo{min-height:540px;display:flex;justify-content:center;align-items:flex-end;padding:90px 24px 0;overflow:hidden}
+  .dir-photo .img{position:relative;right:auto;bottom:auto}
+  .dir-photo .img img{max-height:500px}
+  .dir-photo .sig{font-size:120px}
+  .dir-photo .sig-1{top:6%;left:12%;transform:rotate(-4deg)}
+  .dir-photo .sig-2{top:20%;left:32%;transform:rotate(-2deg)}
+  .dir-right{grid-template-columns:1fr;gap:48px;padding:64px 32px}
+  .dir-clients{padding-top:0}
+  .client-grid{grid-template-columns:repeat(3,1fr)}
   .contact-grid{grid-template-columns:1fr;gap:36px;text-align:center}
   .contact-right{align-items:center}
   .contact-info{padding:24px 0;border-left:0;border-right:0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
@@ -335,38 +346,80 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
   .nav{padding:18px 24px}
   .nav-menu{display:none}
   .nav-toggle{display:flex}
-  .hero{padding:100px 24px 60px;min-height:auto}
-  .hero-grid{grid-template-columns:1fr;gap:36px}
-  .hero-left{padding-left:24px}
-  .hero-num{left:14px}
-  .hero-scroll{left:24px;bottom:24px}
-  .hero-vtext{display:none}
-  .vl-mark{font-size:30vw;margin-bottom:24px}
-  .hero-title{font-size:22px}
-  .hero-sub{font-size:13px}
+  .nav-logo img{height:60px}
+  .hero{padding:110px 24px 60px;min-height:auto}
+  .hero-grid{grid-template-columns:1fr;gap:36px;align-items:start}
+  .hero-left{padding-left:0}
+  .vl-mark{height:clamp(180px,40vw,260px);margin:0 0 24px}
+  .hero-title{font-size:28px;line-height:1.45;margin-bottom:18px}
+  .hero-sub{font-size:15px;max-width:none}
   .hero-right{justify-content:center;align-items:center;min-height:auto}
-  .hero-photo{width:100%;max-width:380px}
-  .stats{padding:40px 20px}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  .hero-photo{width:100%;max-width:420px}
+  .hero-circle{width:130px;height:130px;top:-28px;left:-20px}
+  .hero-circle text{font-size:13px;letter-spacing:2.5px}
+  .stats{padding:48px 20px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px 16px}
   .stat{gap:14px}
   .stat-ico{flex:0 0 44px;width:44px;height:44px}
   .stat-ico svg{width:28px;height:28px}
-  .stat .num{font-size:30px}
-  .what,.portfolio,.director-sec,.contact{padding:64px 20px}
-  .what-left h2,.pf-left h2{font-size:24px}
-  .what-list{grid-template-columns:repeat(2,1fr);gap:32px 18px}
-  .what-item .ico{width:40px;height:40px}
-  .pf-cards{grid-template-columns:1fr 1fr;gap:10px}
-  .dir-info h3{font-size:22px}
-  .dir-photo .sig{font-size:34px;left:-6px;bottom:18px}
-  .client-grid{grid-template-columns:repeat(2,1fr)}
+  .stat .num{font-size:34px}
+  .stat .lbl{font-size:12px}
+  .what,.director-sec,.contact{padding:64px 20px}
+  .what-left h2{font-size:24px;line-height:1.45}
+  .what-list{grid-template-columns:repeat(2,1fr);gap:32px 20px}
+  .what-item .ico{width:42px;height:42px}
+  .what-item h4{font-size:15px}
+  .pf-left{padding:54px 24px}
+  .pf-left h2{font-size:24px}
+  .pf-cards{padding:40px 18px;grid-template-columns:repeat(2,1fr);gap:14px}
+  .pf-card h4{font-size:16px}
+  .pf-card p{font-size:13px}
+  .dir-photo{min-height:480px;padding:64px 24px 0}
+  .dir-photo .img img{max-height:420px}
+  .dir-photo .sig{font-size:96px}
+  .dir-info .tag{font-size:12px}
+  .dir-info h3{font-size:30px;margin-bottom:24px}
+  .dir-info li{font-size:15px}
+  .dir-clients h4{font-size:20px;margin-bottom:24px}
+  .client-cell{height:110px;padding:18px}
+  .contact-grid{gap:32px}
+  .contact-left h3{font-size:22px}
   .contact-info{grid-template-columns:repeat(2,1fr);gap:18px}
+  .contact-right .mark-img{height:90px}
+  .contact-right .nm{font-size:13px}
 }
 @media (max-width:480px){
-  .stats-grid{grid-template-columns:1fr;gap:18px}
-  .what-list{grid-template-columns:1fr;gap:28px}
+  .nav-logo img{height:48px}
+  .vl-mark{height:clamp(150px,38vw,200px);margin:0 0 18px}
+  .hero-title{font-size:24px}
+  .hero-sub{font-size:14px}
+  .hero-circle{width:104px;height:104px;top:-22px;left:-14px}
+  .hero-circle text{font-size:11px;letter-spacing:2px}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .stat .num{font-size:28px}
+  .what-left h2{font-size:21px}
+  .what-list{grid-template-columns:repeat(2,1fr);gap:26px 14px}
+  .what-item h4{font-size:13.5px}
+  .what-item p{font-size:12px}
+  .what-item .ico{width:36px;height:36px}
   .pf-cards{grid-template-columns:1fr;gap:14px}
-  .client-grid{grid-template-columns:1fr}
+  .pf-left h2{font-size:21px}
+  .pf-card .img{aspect-ratio:5/4}
+  .dir-photo{min-height:400px;padding:48px 18px 0}
+  .dir-photo .img img{max-height:340px}
+  .dir-photo .sig{font-size:76px}
+  .dir-photo .sig-1{top:4%;left:8%}
+  .dir-photo .sig-2{top:14%;left:24%}
+  .dir-info h3{font-size:26px}
+  .dir-info li{font-size:14px}
+  .dir-clients h4{font-size:18px}
+  .client-grid{grid-template-columns:1fr 1fr}
+  .client-cell{height:96px;padding:14px}
+  .contact-left h3{font-size:20px}
+  .contact-info{grid-template-columns:repeat(2,1fr);gap:18px 12px}
+  .ci{padding:10px 4px}
+  .ci .v{font-size:12px}
+  .contact-right .mark-img{height:76px}
 }
 </style>
 </head>
