@@ -80,7 +80,7 @@ a{color:inherit;text-decoration:none}
 .vl-mark{
   position:relative;display:inline-block;
   margin:-12px 0 36px;
-  height:clamp(280px,30vw,440px);
+  height:clamp(220px,22vw,340px);
 }
 .vl-mark img{display:block;height:100%;width:auto}
 .hero-title{
@@ -92,10 +92,10 @@ a{color:inherit;text-decoration:none}
   font-size:17px;line-height:1.85;color:rgba(245,239,226,.65);
   letter-spacing:.2px;max-width:520px;
 }
-.hero-right{position:relative;display:flex;justify-content:flex-end;align-items:flex-start;min-height:640px}
+.hero-right{position:relative;display:flex;justify-content:flex-end;align-items:flex-start;min-height:540px;max-width:540px;justify-self:end;width:100%;margin-right:100px}
 .hero-photo{
   position:relative;
-  width:100%;max-width:580px;
+  width:100%;max-width:500px;flex:0 0 500px;
 }
 .hero-slides{
   position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#0a0908;
@@ -253,6 +253,7 @@ a{color:inherit;text-decoration:none}
 }
 .dir-photo .sig-1{top:8%;left:25%;transform:rotate(-4deg)}
 .dir-photo .sig-2{top:22%;left:42%;transform:rotate(-2deg)}
+.dir-photo .sig-m{display:none}
 .dir-right{
   display:grid;grid-template-columns:1fr 1.5fr;gap:60px;
   padding:180px 64px 60px 24%;align-items:start;
@@ -329,7 +330,7 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
   .pf-left{padding:60px 32px;align-items:center;text-align:center}
   .pf-cards{padding:48px 24px;grid-template-columns:repeat(4,1fr);gap:14px}
   .dir-grid{grid-template-columns:1fr;min-height:auto}
-  .dir-photo{min-height:540px;display:flex;justify-content:center;align-items:flex-end;padding:90px 24px 0;overflow:hidden}
+  .dir-photo{min-height:540px;display:flex;justify-content:center;align-items:flex-end;padding:90px 24px 0;overflow:visible}
   .dir-photo .img{position:relative;right:auto;bottom:auto}
   .dir-photo .img img{max-height:500px}
   .dir-photo .sig{font-size:120px}
@@ -347,45 +348,64 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
   .nav-menu{display:none}
   .nav-toggle{display:flex}
   .nav-logo img{height:60px}
+  /* 모바일 전체 가운데 정렬 */
+  .hero-left,.hero-title,.hero-sub,
+  .what-left,.what-item,
+  .pf-left,.pf-card,
+  .dir-info,.dir-clients,
+  .contact-left,.contact-right{text-align:center}
+  .hero-left,.what-left,.pf-left,.dir-info,.dir-clients,.contact-left{align-items:center}
+  .dir-info ul li{padding-left:0;text-align:center}
+  .dir-info ul li::before{display:none}
+
   .hero{padding:110px 24px 60px;min-height:auto}
-  .hero-grid{grid-template-columns:1fr;gap:36px;align-items:start}
-  .hero-left{padding-left:0}
-  .vl-mark{height:clamp(180px,40vw,260px);margin:0 0 24px}
+  .hero-grid{grid-template-columns:1fr;gap:36px;align-items:center;justify-items:center}
+  .hero-left{padding-left:0;display:flex;flex-direction:column}
+  .vl-mark{height:clamp(180px,40vw,260px);margin:0 auto 24px}
   .hero-title{font-size:28px;line-height:1.45;margin-bottom:18px}
-  .hero-sub{font-size:15px;max-width:none}
-  .hero-right{justify-content:center;align-items:center;min-height:auto}
-  .hero-photo{width:100%;max-width:420px}
-  .hero-circle{width:130px;height:130px;top:-28px;left:-20px}
-  .hero-circle text{font-size:13px;letter-spacing:2.5px}
+  .hero-sub{font-size:15px;max-width:none;margin:0 auto}
+  .hero-right{justify-content:center;align-items:center;min-height:auto;max-width:none;justify-self:center;width:100%;margin:0 auto}
+  .hero-photo{width:100%;max-width:280px;flex:0 0 auto;margin:0 auto}
+
   .stats{padding:48px 20px}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px 16px}
-  .stat{gap:14px}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:24px 16px;justify-items:center}
+  .stat{gap:14px;justify-content:center}
   .stat-ico{flex:0 0 44px;width:44px;height:44px}
   .stat-ico svg{width:28px;height:28px}
-  .stat .num{font-size:34px}
+  .stat .num{font-size:34px;justify-content:center}
   .stat .lbl{font-size:12px}
+
   .what,.director-sec,.contact{padding:64px 20px}
   .what-left h2{font-size:24px;line-height:1.45}
-  .what-list{grid-template-columns:repeat(2,1fr);gap:32px 20px}
+  .what-list{grid-template-columns:repeat(2,1fr);gap:32px 20px;justify-items:center}
+  .what-item{display:flex;flex-direction:column;align-items:center}
   .what-item .ico{width:42px;height:42px}
   .what-item h4{font-size:15px}
+
   .pf-left{padding:54px 24px}
   .pf-left h2{font-size:24px}
-  .pf-cards{padding:40px 18px;grid-template-columns:repeat(2,1fr);gap:14px}
+  .btn-more{margin:0 auto}
+  .pf-cards{padding:40px 18px;grid-template-columns:repeat(2,1fr);gap:36px 14px}
+  .pf-card{align-items:center}
   .pf-card h4{font-size:16px}
   .pf-card p{font-size:13px}
-  .dir-photo{min-height:480px;padding:64px 24px 0}
-  .dir-photo .img img{max-height:420px}
-  .dir-photo .sig{font-size:96px}
+
+  .dir-photo{min-height:460px;padding:40px 24px 0;overflow:visible}
+  .dir-photo .img img{max-height:400px}
+  .dir-photo .sig{z-index:5;opacity:1}
+  .dir-photo .sig-1,.dir-photo .sig-2{display:none}
+  .dir-photo .sig-m{display:block;font-size:82px;top:auto;left:auto;bottom:-46px;right:4%;transform:rotate(-3deg);white-space:nowrap}
   .dir-info .tag{font-size:12px}
   .dir-info h3{font-size:30px;margin-bottom:24px}
   .dir-info li{font-size:15px}
   .dir-clients h4{font-size:20px;margin-bottom:24px}
   .client-cell{height:110px;padding:18px}
+
   .contact-grid{gap:32px}
   .contact-left h3{font-size:22px}
+  .btn-inquire{margin:0 auto}
   .contact-info{grid-template-columns:repeat(2,1fr);gap:18px}
-  .contact-right .mark-img{height:90px}
+  .contact-right .mark-img{height:90px;margin-left:auto;margin-right:auto}
   .contact-right .nm{font-size:13px}
 }
 @media (max-width:480px){
@@ -393,8 +413,6 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
   .vl-mark{height:clamp(150px,38vw,200px);margin:0 0 18px}
   .hero-title{font-size:24px}
   .hero-sub{font-size:14px}
-  .hero-circle{width:104px;height:104px;top:-22px;left:-14px}
-  .hero-circle text{font-size:11px;letter-spacing:2px}
   .stats-grid{grid-template-columns:1fr 1fr;gap:16px}
   .stat .num{font-size:28px}
   .what-left h2{font-size:21px}
@@ -402,14 +420,16 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
   .what-item h4{font-size:13.5px}
   .what-item p{font-size:12px}
   .what-item .ico{width:36px;height:36px}
-  .pf-cards{grid-template-columns:1fr;gap:14px}
-  .pf-left h2{font-size:21px}
-  .pf-card .img{aspect-ratio:5/4}
-  .dir-photo{min-height:400px;padding:48px 18px 0}
+  .pf-left{align-items:center;text-align:center;padding:42px 20px}
+  .pf-left h2{font-size:22px}
+  .pf-cards{grid-template-columns:repeat(2,1fr);gap:32px 10px;padding:32px 16px}
+  .pf-card h4{font-size:13.5px}
+  .pf-card p{font-size:11.5px}
+  .pf-card .img{aspect-ratio:1/1;margin-bottom:10px}
+  .dir-photo{min-height:400px;padding:32px 18px 0;overflow:visible}
   .dir-photo .img img{max-height:340px}
-  .dir-photo .sig{font-size:76px}
-  .dir-photo .sig-1{top:4%;left:8%}
-  .dir-photo .sig-2{top:14%;left:24%}
+  .dir-photo .sig-m{font-size:64px;bottom:-38px;right:4%}
+  .hero-photo{max-width:240px}
   .dir-info h3{font-size:26px}
   .dir-info li{font-size:14px}
   .dir-clients h4{font-size:18px}
@@ -450,11 +470,11 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
   <nav class="nav">
     <a href="#" class="nav-logo"><img src="logo2.png" alt="VL VALUE LIGHT"></a>
     <div class="nav-menu">
-      <a href="#what">ABOUT</a>
-      <a href="#what">SERVICE</a>
+      <a href="about.html">ABOUT</a>
+      <a href="service.html">SERVICE</a>
       <a href="#portfolio">PORTFOLIO</a>
-      <a href="#portfolio">LECTURE</a>
-      <a href="#contact">CONTACT</a>
+      <a href="lecture.html">LECTURE</a>
+      <a href="contact.html">CONTACT</a>
     </div>
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
@@ -469,16 +489,6 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
     </div>
     <div class="hero-right">
       <div class="hero-photo">
-        <span class="hero-circle" aria-hidden="true">
-          <svg viewBox="0 0 200 200">
-            <defs>
-              <path id="heroCirclePath" d="M 100,100 m -78,0 a 78,78 0 1,1 156,0 a 78,78 0 1,1 -156,0"/>
-            </defs>
-            <text>
-              <textPath href="#heroCirclePath">VL VALUE LIGHT · VL VALUE LIGHT · VL VALUE LIGHT · </textPath>
-            </text>
-          </svg>
-        </span>
         <div class="hero-slides">
           <div class="hero-slide active"><img src="vl-1.jpg" alt="VL 1"></div>
           <div class="hero-slide"><img src="vl-2.jpg" alt="VL 2"></div>
@@ -537,32 +547,32 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
       <div class="what-item">
         <span class="ico"><svg><use href="#i-palette"/></svg></span>
         <h4>퍼스널컬러 컨설팅</h4>
-        <p>개인의 고유한 매력을 찾아주는 컬러 분석</p>
+        <p>개인의 고유한 매력을<br>찾아주는 컬러 분석</p>
       </div>
       <div class="what-item">
         <span class="ico"><svg><use href="#i-face"/></svg></span>
         <h4>얼굴형 진단</h4>
-        <p>얼굴형 분석을 통한 이미지 밸런스 설계</p>
+        <p>얼굴형 분석을 통한<br>이미지 밸런스 설계</p>
       </div>
       <div class="what-item">
         <span class="ico"><svg><use href="#i-frame"/></svg></span>
         <h4>골격(바디프레임) 진단</h4>
-        <p>체형 분석을 통한 스타일링 솔루션 제안</p>
+        <p>체형 분석을 통한<br>스타일링 솔루션 제안</p>
       </div>
       <div class="what-item">
         <span class="ico"><svg><use href="#i-bag"/></svg></span>
         <h4>쇼핑 동행</h4>
-        <p>체형과 이미지에 맞는 맞춤 쇼핑 동행</p>
+        <p>체형과 이미지에 맞는<br>맞춤 쇼핑 동행</p>
       </div>
       <div class="what-item">
         <span class="ico"><svg><use href="#i-board"/></svg></span>
         <h4>기업 강의</h4>
-        <p>조직의 이미지 향상을 위한 맞춤형 교육 프로그램</p>
+        <p>조직의 이미지 향상을 위한<br>맞춤형 교육 프로그램</p>
       </div>
       <div class="what-item">
         <span class="ico"><svg><use href="#i-tie"/></svg></span>
         <h4>취업·면접 컨설팅</h4>
-        <p>합격을 부르는 이미지 전략 컨설팅</p>
+        <p>합격을 부르는<br>이미지 전략 컨설팅</p>
       </div>
     </div>
   </div>
@@ -580,22 +590,22 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
       <div class="pf-card">
         <div class="img"><img src="기업강의.jpg" alt="기업 강의"></div>
         <h4>기업 강의</h4>
-        <p>삼성, 공공기관, 기업 등 다수 출강</p>
+        <p>삼성, 공공기관,<br>기업 등 다수 출강</p>
       </div>
       <div class="pf-card">
         <div class="img"><img src="p-consult.jpg" alt="이미지 컨설팅"></div>
         <h4>이미지 컨설팅</h4>
-        <p>개인별 맞춤 분석 및 1:1 컨설팅</p>
+        <p>개인별 맞춤 분석 및<br>1:1 컨설팅</p>
       </div>
       <div class="pf-card">
         <div class="img"><img src="학교강의.jpg" alt="학교·기관 출강"></div>
         <h4>학교·기관 출강</h4>
-        <p>대학, 고등학교, 관공서 진로 및 이미지 교육</p>
+        <p>대학, 고등학교, 관공서<br>진로 및 이미지 교육</p>
       </div>
       <div class="pf-card">
         <div class="img"><img src="쇼핑동행.jpg" alt="쇼핑 동행"></div>
         <h4>쇼핑 동행</h4>
-        <p>개인 스타일에 맞는 쇼핑 가이드</p>
+        <p>개인 스타일에 맞는<br>쇼핑 가이드</p>
       </div>
     </div>
   </div>
@@ -607,6 +617,7 @@ footer.foot{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;p
     <div class="dir-photo">
       <span class="sig sig-1">Park</span>
       <span class="sig sig-2">Juhae</span>
+      <span class="sig sig-m">Park Juhae</span>
       <div class="img"><img src="D1.png" alt="대표 박주해"></div>
     </div>
     <div class="dir-right">

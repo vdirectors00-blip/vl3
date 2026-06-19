@@ -1,17 +1,15 @@
-/* ── VL Subpage Shared Styles ── */
+/* ── VL 시안10 Subpage Shared Styles (Black Theme) ── */
 :root{
-  --ink:#0a0a0a;
+  --ink:#0d0d0d;
+  --ink-2:#1a1a1a;
   --paper:#ffffff;
   --line:#e6e6e6;
+  --line-d:rgba(255,255,255,.14);
   --mute:#7a7a7a;
-  --primary:#402759;
-  --primary-deep:#2c1a3e;
-  --primary-soft:#9b7bd6;
-  --point:#9b7bd6;
-  --nav-h:88px;
+  --gold:#c4a462;
+  --gold-soft:#a48948;
+  --beige:#f5efe2;
 }
-@media (max-width:1024px){:root{--nav-h:80px}}
-@media (max-width:768px){:root{--nav-h:72px}}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -27,21 +25,23 @@ a{color:inherit;text-decoration:none}
 .ico{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
 .ico svg{display:block;width:100%;height:100%}
 
-/* NAV */
+/* ── NAV (블랙 톤) ── */
 .nav{
   position:sticky;top:0;z-index:100;
-  background:var(--primary);
+  background:var(--ink);
   display:flex;align-items:center;justify-content:space-between;
-  padding:12px 56px;gap:16px 32px;flex-wrap:wrap;
+  padding:18px 56px;gap:16px 32px;flex-wrap:wrap;
+  border-bottom:1px solid var(--line-d);
 }
 .nav-logo{flex:0 0 auto;display:inline-flex;align-items:center}
-.nav-logo img{height:64px;width:auto;display:block}
-.nav-menu{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
-.nav-menu a{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:600;color:#fff;transition:opacity .3s;position:relative;white-space:nowrap}
-.nav-menu a:hover{opacity:.7}
-.nav-menu a.current::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:1.5px;background:#fff}
+.nav-logo img{height:62px;width:auto;display:block}
+.nav-menu{display:flex;gap:38px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav-menu a{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;color:#f5efe2;transition:color .3s;position:relative;white-space:nowrap}
+.nav-menu a:hover{color:var(--gold)}
+.nav-menu a.current{color:var(--gold)}
+.nav-menu a.current::after{content:'';position:absolute;left:0;right:0;bottom:-8px;height:1.5px;background:var(--gold)}
 .nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:0;cursor:pointer;padding:8px;z-index:101}
-.nav-toggle span{display:block;width:22px;height:2px;background:#fff;transition:transform .35s,opacity .25s}
+.nav-toggle span{display:block;width:22px;height:2px;background:#f5efe2;transition:transform .35s,opacity .25s}
 .nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav.open .nav-toggle span:nth-child(2){opacity:0}
 .nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -59,14 +59,14 @@ a{color:inherit;text-decoration:none}
 .page-hero .ph-inner{position:relative;z-index:5;max-width:1080px;padding:0 24px}
 .page-hero .ph-eyebrow{
   font-size:12px;letter-spacing:3px;text-transform:uppercase;
-  color:rgba(255,255,255,.82);font-weight:500;margin-bottom:24px;display:block;
+  color:var(--gold);font-weight:500;margin-bottom:24px;display:block;
 }
 .page-hero h1{font-size:90px;font-weight:800;letter-spacing:8px;line-height:1;text-transform:uppercase}
 @media (max-width:900px){.page-hero h1{font-size:48px;letter-spacing:4px} .page-hero .ph-eyebrow{font-size:10.5px;letter-spacing:2px;margin-bottom:16px}}
 @media (max-width:480px){.page-hero h1{font-size:34px;letter-spacing:3px} .page-hero .ph-eyebrow{font-size:9.5px;letter-spacing:1.5px;margin-bottom:12px}}
 
 /* BREADCRUMB */
-.bread{padding:18px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);font-weight:600;border-bottom:1px solid var(--line)}
+.bread{padding:18px 32px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);font-weight:600;border-bottom:1px solid #ececec}
 .bread a{color:var(--mute);transition:color .3s}
 .bread a:hover{color:var(--ink)}
 .bread span+span::before{content:'/';margin:0 12px;color:var(--mute)}
@@ -75,8 +75,7 @@ a{color:inherit;text-decoration:none}
 /* SECTION COMMONS */
 .section{padding:100px 32px}
 .section-head{text-align:center;max-width:880px;margin:0 auto 64px}
-.section-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;font-weight:700;color:var(--ink);position:relative;padding-bottom:0;display:inline-block;margin-bottom:18px}
-.section-eyebrow::after{display:none}
+.section-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;font-weight:700;color:var(--gold-soft);display:inline-block;margin-bottom:18px}
 .section-head h2{font-size:48px;font-weight:800;letter-spacing:-1px;line-height:1.2;color:var(--ink)}
 .section-head p.sub{margin-top:18px;font-size:15px;color:var(--mute);line-height:1.85;letter-spacing:.3px}
 .wrap{max-width:1280px;margin:0 auto}
@@ -86,71 +85,85 @@ a{color:inherit;text-decoration:none}
 .reveal.in{opacity:1;transform:translateY(0)}
 
 /* BUTTONS */
-.btn-solid{display:inline-flex;align-items:center;gap:14px;background:var(--primary);color:#fff;padding:18px 44px;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;transition:background .3s,color .3s,outline-color .3s}
-.btn-solid:hover{background:var(--primary-deep)}
-.btn-line{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--primary);padding-bottom:10px;border-bottom:1px solid var(--primary);transition:opacity .3s}
-.btn-line:hover{opacity:.6}
+.btn-solid{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:18px 44px;font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:700;transition:background .3s,color .3s}
+.btn-solid:hover{background:var(--gold);color:var(--ink)}
+.btn-line{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:700;color:var(--ink);padding-bottom:10px;border-bottom:1px solid var(--ink);transition:opacity .3s,color .3s,border-color .3s}
+.btn-line:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
 .btn-solid .ico,.btn-line .ico{width:14px;height:14px}
 
-/* FOOTER (purple, unified with index) */
-footer{background:var(--primary);color:#fff;padding:64px 56px 40px;font-size:14px;margin-top:0}
-footer .f-wrap{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:flex-start}
-footer .f-brand{line-height:1.95}
-footer .f-brand strong{display:block;color:#fff;font-size:16px;font-weight:700;letter-spacing:.5px;margin-bottom:14px}
-footer .f-brand p,footer .f-brand{color:rgba(255,255,255,.88)}
-footer h5,footer ul,footer .copy{display:none}
-.f-sns{display:flex;gap:14px;align-items:center}
-.f-sns a{
-  width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);
-  display:flex;align-items:center;justify-content:center;
-  color:#fff;transition:background .3s;
+/* ── FOOTER (시안10 메인과 동일) ── */
+footer.foot{background:var(--ink);color:#fff;padding:96px 56px 80px;border-top:1px solid var(--line-d)}
+footer.foot .contact-grid{
+  max-width:1440px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 2fr .8fr;gap:60px;align-items:center;
+  --gold:#c0a06a;
 }
-.f-sns a:hover{background:rgba(255,255,255,.22)}
-.f-sns svg{width:20px;height:20px}
+footer.foot .contact-left .tag{font-size:11px;letter-spacing:3.5px;color:var(--gold);font-weight:700;text-transform:uppercase;margin-bottom:18px;display:block}
+footer.foot .contact-left h3{font-size:26px;font-weight:700;letter-spacing:-.3px;margin-bottom:14px;line-height:1.4}
+footer.foot .contact-left p{font-size:13.5px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px}
+.btn-inquire{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:14px 30px;background:var(--gold);color:var(--ink);
+  font-size:11.5px;letter-spacing:3px;text-transform:uppercase;font-weight:700;
+  transition:background .3s;
+}
+.btn-inquire:hover{background:#3a3a3e}
+.btn-inquire::after{content:'→';font-size:13px}
+footer.foot .contact-info{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-left:1px solid var(--line-d);border-right:1px solid var(--line-d);padding:0 36px}
+footer.foot .ci{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;padding:14px 6px}
+footer.foot .ci .ic{width:46px;height:46px;border:1px solid rgba(255,255,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold)}
+footer.foot .ci .ic svg{width:18px;height:18px;stroke-width:1.5}
+footer.foot .ci .v{font-size:13px;color:#fff;font-weight:600;letter-spacing:.1px;word-break:break-all}
+footer.foot .ci small{font-size:10.5px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase}
+footer.foot .contact-right{display:flex;flex-direction:column;align-items:center;gap:8px}
+footer.foot .contact-right .mark-img{width:auto;height:120px;display:block;margin-bottom:12px}
+footer.foot .contact-right .nm{font-size:14px;letter-spacing:4px;color:#fff;font-weight:700}
+footer.foot .contact-right .desc{font-size:9.5px;letter-spacing:3px;color:rgba(255,255,255,.55);text-transform:uppercase}
+.foot-copy{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;padding:24px;font-size:11px;letter-spacing:1.5px;border-top:1px solid var(--line-d)}
 
 /* RESPONSIVE */
-/* Tablet landscape */
-@media (max-width:1024px){
-  .nav{padding:12px 28px}
-  .nav-menu{gap:22px}
-  .nav-logo img{height:56px}
+@media (max-width:1200px){
+  footer.foot .contact-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+  footer.foot .contact-right{align-items:center}
+  footer.foot .contact-info{padding:24px 0;border-left:0;border-right:0;border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
 }
-/* Tablet portrait / large phone — menu wraps below logo */
+@media (max-width:1024px){
+  .nav{padding:14px 28px}
+  .nav-menu{gap:22px}
+  .nav-logo img{height:54px}
+}
 @media (max-width:768px){
-  .nav{padding:10px 18px;flex-wrap:nowrap;background:var(--primary)}
-  .nav-logo img{height:50px}
+  .nav{padding:12px 18px;flex-wrap:nowrap;background:var(--ink)}
+  .nav-logo img{height:48px}
   .nav-toggle{display:flex}
   .nav-backdrop{display:block}
   .nav.open .nav-backdrop{opacity:1;visibility:visible}
   .nav-menu{
     position:fixed;top:0;right:0;bottom:0;width:78%;max-width:340px;
-    background:var(--primary-deep);flex-direction:column;flex-wrap:nowrap;align-items:flex-start;
+    background:var(--ink);flex-direction:column;flex-wrap:nowrap;align-items:flex-start;
     justify-content:flex-start;gap:0;padding:96px 36px 48px;margin:0;border:0;
     transform:translateX(105%);transition:transform .42s cubic-bezier(.5,0,.2,1);
     box-shadow:-12px 0 50px rgba(0,0,0,.32);z-index:100;overflow-y:auto;
   }
   .nav.open .nav-menu{transform:translateX(0)}
-  .nav-menu a{font-size:15px;letter-spacing:1.5px;width:100%;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#fff}
+  .nav-menu a{font-size:15px;letter-spacing:1.5px;width:100%;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.12);color:#f5efe2}
   .nav-menu a.current::after{display:none}
-  .nav-menu a.current{color:rgba(255,255,255,.55)}
   .page-hero{height:42vh;min-height:260px}
   .section{padding:60px 16px}
   .section-head{margin-bottom:44px}
   .section-head h2{font-size:28px}
-  footer{padding:48px 18px 32px}
-  footer .f-wrap{grid-template-columns:1fr;gap:32px}
-  .f-sns{justify-content:flex-start}
+  footer.foot{padding:60px 18px 40px}
+  footer.foot .contact-info{grid-template-columns:repeat(2,1fr);gap:18px}
+  footer.foot .contact-left h3{font-size:22px}
+  footer.foot .contact-right .mark-img{height:90px}
 }
-/* Phones */
 @media (max-width:480px){
   .nav{padding:10px 14px}
-  .nav-logo img{height:46px}
+  .nav-logo img{height:42px}
   .page-hero{height:38vh;min-height:220px}
   .section{padding:48px 14px}
   .section-head h2{font-size:23px}
-  footer{padding:40px 14px 28px}
-}
-/* Small phones (iPhone SE 등) */
-@media (max-width:360px){
-  .nav-logo img{height:40px}
+  footer.foot{padding:48px 14px 32px}
+  footer.foot .contact-info{grid-template-columns:1fr;gap:14px}
+  footer.foot .contact-right .mark-img{height:76px}
 }
